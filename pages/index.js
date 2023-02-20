@@ -13,9 +13,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <main className={styles.main}>
-        asd
-      </main>
+      <header className={styles.header}>
+        
+      </header>
 
     </>
 
