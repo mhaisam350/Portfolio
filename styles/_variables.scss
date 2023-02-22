@@ -1,0 +1,58 @@
+// Color variables
+$light: #EFF0F3;
+$dark: #0F0E17;
+$accent: #FF8906;
+
+// Map of themes
+$themes: (
+
+    light: (
+
+        background: $light,
+        text: $dark,
+        lines: $dark
+
+    ),
+
+    dark: (
+
+        background: $dark,
+        text: $light,
+        lines: $light
+
+    )
+
+);
+
+// Generate map of styles for each theme
+@mixin themeGenerator($themes) {
+
+    @each $theme, $styles in $themes {
+
+        .theme-#{$theme} & {
+
+            $theme-map: () !global;
+
+            @each $property, $style in $styles {
+
+                $value: map-get(map-get($themes, $theme), $property);
+
+                $theme-map: map-merge($theme-map , ($property: $value) ) !global;
+
+            };
+
+            @content;
+            $theme-map: null !global;
+
+        };
+
+    };
+
+};
+
+// Retrieve style property base on current theme
+@function getThemeStyle($property) {
+
+    @return map-get($theme-map, $property);
+
+};
