@@ -10,9 +10,11 @@ export default function Home() {
 
   const { theme } = useThemeContext();
 
+  const themeClass = theme === 'dark' ? styles['theme-dark'] : styles['theme-light'];
+
   return (
 
-    <div className={styles[`theme-${theme}`]}>
+    <div className={themeClass}>
 
       <div className={styles.container}>
 
@@ -22,7 +24,7 @@ export default function Home() {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
 
-        <header className={styles['header']}>
+        <header className={'flex' + " " + styles['header']}>
 
           <div>
 
@@ -30,13 +32,17 @@ export default function Home() {
               Hello, <br /> I'm <span className={styles['accent-text']}>Haisam</span>.
             </h1>
 
-            <button className={styles['accent-background']}>About me</button>
+            <button className={styles['button']}>About me</button>
             
           </div>
 
-          <div className={styles['header-divider']}></div>
+          <div className={'flex' + " " + styles['subheading-container']}>
 
-          <h2 className={styles['header-subheading']}>Front End <br /> ReactJS <br /> Developer </h2>
+            <div className={styles['header-divider']}></div>
+
+            <h2 className={styles['header-subheading']}>Front End <br /> ReactJS <br /> Developer </h2>
+
+          </div>
 
         </header>
 
