@@ -1,4 +1,4 @@
-import { useThemeContext } from "@/pages/contexts/ThemeContext";
+import { useThemeContext } from "@/contexts/ThemeContext";
 
 import styles from '@/styles/ThemeSwitch.module.scss';
 
