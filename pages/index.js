@@ -2,6 +2,8 @@ import Head from 'next/head';
 
 import { useThemeContext } from './contexts/ThemeContext';
 
+import ThemeSwitch from '@/components/ThemeSwitch';
+
 import styles from '@/styles/Home.module.scss';
 
 export default function Home() {
@@ -19,8 +21,6 @@ export default function Home() {
       </Head>
 
       <header className={styles['header']}>
-        
-    
 
       </header>
 
