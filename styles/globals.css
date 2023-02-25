@@ -53,3 +53,7 @@ table {
 .grid {
   display: grid;
 }
+
+.relative {
+  position: relative;
+}

@@ -1,0 +1,32 @@
+@import './variables';
+
+.tab {
+    display: inline-block;
+    background-color: transparent;
+    border: 3px solid $accent;
+    border-radius: 0.25em;
+    color: inherit;
+    padding: 1.2em 0;
+    margin-bottom: 1em;
+    text-align: center;
+    text-transform: capitalize;
+    width: 90%;
+    cursor: default;   
+}
+
+@media (min-width: 800px) {
+
+    .tab {
+        width: 300px;
+    }
+
+}
+
+@media (min-width: 1024px) {
+
+    .tab {
+        padding: 0.7em 0.5em;
+        width: 100px;
+    }
+
+}

@@ -1,3 +1,9 @@
+// Margin variable
+$bottom-padding: 15em;
+
+// Line height variable
+$line-height: 2;
+
 // Color variables
 $light: #EFF0F3;
 $dark: #0F0E17;
@@ -94,7 +100,7 @@ $themes: (
         width: 100%;
         height: 100%;
         opacity: 0.5;
-        cursor: default;
+        // cursor: default;
         transition: 0.15s ease;
         
         transform: perspective(1em) rotateX(30deg) scale(1, 0.3);
@@ -105,7 +111,7 @@ $themes: (
         background-color: $accent;
     }
 
-    &:hover::before {
+    &:hover::before, &:focus::before {
         opacity: 0.7;
     }
 }

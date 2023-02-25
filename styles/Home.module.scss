@@ -14,31 +14,54 @@
     }
 
     margin: 0 auto;
-    max-width: 65%;
-    // border: 1px solid black;
+    max-width: 90%;
 }
 
 .accent-text {
     color: $accent;
 }
 
+.section-heading {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 2.5em;
+    padding-bottom: 0.5em;
+}
+
+// Header section
 .header {
     height: 100vh;
-    align-items: center;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    // padding-bottom: $bottom-padding;
+}
+
+.header-flex-container {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 1.5em;
 }
 
 .header-heading {
     font-weight: 500;
+    font-size: 3em;
+    line-height: 1.2;
 }
 
-.button {
-    @include button;
+.subheading-container {
+    flex-direction: column;
+    // align-items: center;
+    gap: 1.5em;
+    width: 100%;
 }
 
 .header-divider {
-    height: 50px;
-    width: 2px;
+    height: 3px;
+    width: 70%;
 
     @include themeGenerator($themes) {
         background-color: getThemeStyle('lines');
@@ -47,10 +70,111 @@
 
 .header-subheading {
     font-family: 'Lora', serif;
-    
+    font-size: 1.5em;
+    line-height: 1.2;
+}
+
+.button {
+    @include button;
+    margin-top: 2em;
+}
+
+// About section
+.about {
+    padding-bottom: $bottom-padding;
+}
+
+.about-flex-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.about-paragraph {
+    line-height: $line-height;
+
+    &:not(:last-child) {
+        margin-bottom: 1em;
+    }
+}
+
+.about-skills {
+    width: 100%;
+}
+
+.skills-heading {
+    font-size: 1.8em;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 1em 0;
+}
+
+.skills-list {
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    display: inline-flex;
+}
+
+// Contact section
+.contact {
+    padding-bottom: 10em;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-paragraph {
+    margin-bottom: 2em;
+    line-height: $line-height;
+}
+
+.contact-icons {
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.contact-line {
+    height: 3px;
+    width: 15%;
+
+    @include themeGenerator($themes) {
+        background-color: getThemeStyle('lines');
+    }
+}
+
+.contact-icon {
+    color: $accent;
+    cursor: pointer;
+    font-size: 2em;
+
+    &:not(:last-child) {
+        margin-right: 1em;;
+    }
+}
+
+// Footer section
+.footer {
+    display: none;
 }
 
 @media (min-width: 800px) {
+
+    .container {
+        max-width: 85%;
+    }
+
+    .section-heading {
+        font-size: 4em;
+    }
+
+    .header-flex-container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
 
     .header-heading {
         font-size: 6em;
@@ -58,8 +182,15 @@
     }
 
     .subheading-container {
+        flex-direction: row;
         align-items: center;
         gap: 1em;
+        width: auto;
+    }
+
+    .header-divider {
+        height: 300px;
+        width: 3px;
     }
 
     .header-subheading {
@@ -67,9 +198,94 @@
         line-height: 1.2;
     }
 
-    .header-divider {
-        height: 300px;
-        width: 2px;
+    .button {
+        margin-top: 0.5em;
+    }
+
+    .skills-heading {
+        font-size: 2.5em;
+    }
+
+    .contact-line {
+        width: 25%;
+    }
+    
+    // Footer section
+    .footer {
+        display: flex;
+        position: fixed;
+        bottom: 1em;
+        left: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-icon {
+        font-size: 1.7em;
+        color: $accent;
+        cursor: pointer;
+        transform: rotateZ(-90deg);
+        transition: 0.5s ease;
+
+        &:not(:first-child) {
+            margin-top: 0.5em;
+        }
+
+        &:hover {
+            transform: rotateZ(0deg);
+        }
+    }
+    
+    .footer-line {
+        height: 150px;
+        width: 3px;
+        margin-top: 1em;
+    
+        @include themeGenerator($themes) {
+            background-color: getThemeStyle('lines');
+        }
+    }
+
+}
+
+@media (min-width: 1024px) {
+
+    .container {
+        padding: 0 1em 0 4em;
+        max-width: 1300px;
+    }
+
+    .header {
+        width: 80%;
+    }
+
+    .about-flex-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .about-text {
+        max-width: 40%;
+    }
+
+    .about-skills {
+        width: 50%;
+    }
+
+    .skills-heading {
+        margin: 0 0 1em;
+    }
+
+    .skills-list {
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+
+        &:last-child {
+            margin-top: 1.5em;
+            margin-left: 2em;
+        }
     }
 
 }
