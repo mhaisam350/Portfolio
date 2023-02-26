@@ -6,6 +6,8 @@ import ThemeSwitch from '@/components/ThemeSwitch';
 
 import styles from '@/styles/Home.module.scss';
 
+import data from '@/data/projects.json';
+
 import SkillTab from '@/components/SkillTab';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,6 +15,8 @@ import { faEnvelope, faLink } from '@fortawesome/free-solid-svg-icons';
 import { faGit, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 export default function Home() {
+
+  console.log(data);
 
   const { theme } = useThemeContext();
 

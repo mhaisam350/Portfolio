@@ -1,0 +1,27 @@
+{
+   "projects": [
+        {
+            "title": "Eon Motors",
+            "description": "A headless ecommerce website for a fictional company, built using Shopify's Storefront api, GraphQL, and NextJs. Category and Product pages are built and displayed dynamically with dynamic routes. Users can add and remove items from their cart.",
+            "image": "",
+            "github": "https://github.com/mhaisam350/Eon",
+            "live": "https://eon-motors.vercel.app/"
+        },
+
+        {
+            "title": "Eon Motors",
+            "description": "A headless ecommerce website for a fictional company, built using Shopify's Storefront api, GraphQL, and NextJs. Category and Product pages are built and displayed dynamically with dynamic routes. Users can add and remove items from their cart.",
+            "image": "",
+            "github": "https://github.com/mhaisam350/Eon",
+            "live": "https://eon-motors.vercel.app/"
+        },
+
+        {
+            "title": "Eon Motors",
+            "description": "A headless ecommerce website for a fictional company, built using Shopify's Storefront api, GraphQL, and NextJs. Category and Product pages are built and displayed dynamically with dynamic routes. Users can add and remove items from their cart.",
+            "image": "",
+            "github": "https://github.com/mhaisam350/Eon",
+            "live": "https://eon-motors.vercel.app/"
+        }
+   ]   
+}
