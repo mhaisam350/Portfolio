@@ -1,0 +1,77 @@
+@import './variables';
+
+.container {
+    flex-direction: column;
+    color: inherit;
+    margin: 3em 0 5em 0;
+}
+
+.project-heading {
+    font-size: 1.8em;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding-bottom: 0.5em;
+}
+
+.project-paragraph {
+    line-height: $line-height;
+}
+
+.project-links {
+    border-bottom: 3px solid;
+    border-color: $accent;
+    padding: 1em 0;
+}
+
+.link {
+    color: $accent;
+    font-size: 1.5em;
+
+    &:not(:last-child) {
+        margin-right: 0.5em;;
+    }
+}
+
+@media (max-width: 799px) {
+
+    .project-image {
+        order: 1;
+    }
+
+    .project-text {
+        order: 2;
+    }
+
+    .project-heading {
+        padding: 2em 0 0.5em;
+    }
+    
+    .project-links {
+        display: flex;
+        justify-content: center;
+    }
+
+}
+
+@media (min-width: 800px) {
+
+    .container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8em;
+    }
+
+    .project-heading {
+        font-size: 2.5em;
+    }
+
+    .project-text {
+        width: 40%;
+    }
+
+    .project-image {
+        width: 50%;
+    }
+
+}

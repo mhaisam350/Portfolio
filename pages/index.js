@@ -2,13 +2,14 @@ import Head from 'next/head';
 
 import { useThemeContext } from '../contexts/ThemeContext';
 
-import ThemeSwitch from '@/components/ThemeSwitch';
-
 import styles from '@/styles/Home.module.scss';
+
+import ThemeSwitch from '@/components/ThemeSwitch';
+import ProjectDisplay from '@/components/ProjectDisplay';
+import SkillTab from '@/components/SkillTab';
 
 import data from '@/data/projects.json';
 
-import SkillTab from '@/components/SkillTab';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLink } from '@fortawesome/free-solid-svg-icons';
@@ -17,8 +18,6 @@ import { faGit, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 export default function Home() {
 
   const { projects } = data;
-
-  console.log(projects);
 
   const { theme } = useThemeContext();
 
@@ -36,6 +35,7 @@ export default function Home() {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
 
+        {/* Header section */}
         <header className={'flex' + " " + styles['header']}>
 
           <div className={'flex' + " " + styles['header-flex-container']}>
@@ -58,6 +58,7 @@ export default function Home() {
 
         </header>
 
+        {/* About section */}
         <section className={styles['about']}>
 
           {/* <div> */}
@@ -122,6 +123,7 @@ export default function Home() {
 
         </section>
 
+        {/* Projects section */}
         <section className={styles['featured-projects']}>
 
           <h2 className={'center' + " " + styles['section-heading']}>Featured Projects</h2>
@@ -130,7 +132,7 @@ export default function Home() {
 
             projects.map((project, index) => (
 
-              <div key={index}>{project.title}</div>
+              <ProjectDisplay key={index} index={index} project={project} />
 
             ))
 
@@ -138,6 +140,7 @@ export default function Home() {
 
         </section>
 
+        {/* Contact section */}
         <section className={'flex' + " " + styles['contact']}>
 
           <h2 className={styles['section-heading']}>Contact</h2>
@@ -166,6 +169,7 @@ export default function Home() {
 
       </div>
 
+      {/* Footer section */}
       <footer className={styles.footer + " " + 'flex'}>
                             
         <FontAwesomeIcon className={styles['footer-icon']} icon={faGithub} />
