@@ -16,7 +16,9 @@ import { faGit, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 export default function Home() {
 
-  console.log(data);
+  const { projects } = data;
+
+  console.log(projects);
 
   const { theme } = useThemeContext();
 
@@ -123,6 +125,16 @@ export default function Home() {
         <section className={styles['featured-projects']}>
 
           <h2 className={'center' + " " + styles['section-heading']}>Featured Projects</h2>
+
+          {
+
+            projects.map((project, index) => (
+
+              <div key={index}>{project.title}</div>
+
+            ))
+
+          }
 
         </section>
 
