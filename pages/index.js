@@ -116,6 +116,12 @@ export default function Home() {
 
         </section>
 
+        <section className={styles['featured-projects']}>
+
+          <h2 className={'center' + " " + styles['section-heading']}>Featured Projects</h2>
+
+        </section>
+
         <section className={'flex' + " " + styles['contact']}>
 
           <h2 className={styles['section-heading']}>Contact</h2>
