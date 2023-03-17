@@ -8,14 +8,14 @@
     background-color: $dark;
 }
 
-.container {
-    @include themeGenerator($themes) {
-        color: getThemeStyle('page-text');
-    }
+// .container {
+//     @include themeGenerator($themes) {
+//         color: getThemeStyle('page-text');
+//     }
 
-    margin: 0 auto;
-    max-width: 90%;
-}
+//     margin: 0 auto;
+//     max-width: 90%;
+// }
 
 .accent-text {
     color: $accent;
@@ -64,9 +64,9 @@
     height: 3px;
     width: 70%;
 
-    @include themeGenerator($themes) {
-        background-color: getThemeStyle('lines');
-    }
+    // @include themeGenerator($themes) {
+    //     background-color: getThemeStyle('lines');
+    // }
 }
 
 .header-subheading {
@@ -145,9 +145,9 @@
     height: 3px;
     width: 15%;
 
-    @include themeGenerator($themes) {
-        background-color: getThemeStyle('lines');
-    }
+    // @include themeGenerator($themes) {
+    //     background-color: getThemeStyle('lines');
+    // }
 }
 
 .contact-icon {
@@ -247,9 +247,9 @@
         width: 3px;
         margin-top: 1em;
     
-        @include themeGenerator($themes) {
-            background-color: getThemeStyle('lines');
-        }
+        // @include themeGenerator($themes) {
+        //     background-color: getThemeStyle('lines');
+        // }
     }
 
 }

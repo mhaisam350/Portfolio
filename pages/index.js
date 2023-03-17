@@ -1,10 +1,10 @@
 import Head from 'next/head';
 
-import { useThemeContext } from '../contexts/ThemeContext';
+// import { useThemeContext } from '../contexts/ThemeContext';
 
 import styles from '@/styles/Home.module.scss';
 
-import ThemeSwitch from '@/components/ThemeSwitch';
+// import Navigation from '@/components/Navigation';
 import ProjectDisplay from '@/components/ProjectDisplay';
 import SkillTab from '@/components/SkillTab';
 
@@ -19,21 +19,23 @@ export default function Home() {
 
   const { projects } = data;
 
-  const { theme } = useThemeContext();
+  // const { theme } = useThemeContext();
 
-  const themeClass = theme === 'dark' ? styles['theme-dark'] : styles['theme-light'];
+  // const themeClass = theme === 'dark' ? styles['theme-dark'] : styles['theme-light'];
 
   return (
 
-    <div className={themeClass + " " + 'relative'}>
+    <>
 
-      <div className={styles.container}>
+      {/* <div className={styles.container}> */}
 
         <Head>
           <title>Haisam | Front End Developer</title>
           <meta name="description" content="Front End React Developer" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
+
+        {/* <Navigation /> */}
 
         {/* Header section */}
         <header className={'flex' + " " + styles['header']}>
@@ -59,9 +61,7 @@ export default function Home() {
         </header>
 
         {/* About section */}
-        <section className={styles['about']}>
-
-          {/* <div> */}
+        {/* <section className={styles['about']}>
 
             <h2 className={styles['section-heading']}>About Me</h2>
 
@@ -118,13 +118,11 @@ export default function Home() {
               </section>
 
             </div>
-          
-          {/* </div> */}
 
-        </section>
+        </section> */}
 
         {/* Projects section */}
-        <section className={styles['featured-projects']}>
+        {/* <section className={styles['featured-projects']}>
 
           <h2 className={'center' + " " + styles['section-heading']}>Featured Projects</h2>
 
@@ -138,10 +136,10 @@ export default function Home() {
 
           }
 
-        </section>
+        </section> */}
 
         {/* Contact section */}
-        <section className={'flex' + " " + styles['contact']}>
+        {/* <section className={'flex' + " " + styles['contact']}>
 
           <h2 className={styles['section-heading']}>Contact</h2>
 
@@ -165,12 +163,12 @@ export default function Home() {
 
           </section>
 
-        </section>
+        </section> */}
 
-      </div>
+      {/* </div> */}
 
       {/* Footer section */}
-      <footer className={styles.footer + " " + 'flex'}>
+      {/* <footer className={styles.footer + " " + 'flex'}>
                             
         <FontAwesomeIcon className={styles['footer-icon']} icon={faGithub} />
 
@@ -178,9 +176,9 @@ export default function Home() {
 
         <div className={styles['footer-line']}></div>
 
-      </footer>
+      </footer> */}
 
-    </div>
+    </>
 
   )
 

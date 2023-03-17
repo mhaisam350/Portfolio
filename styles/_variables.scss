@@ -10,70 +10,71 @@ $dark: #0F0E17;
 $accent: #FF8906;
 
 // Map of themes
-$themes: (
+// $themes: (
 
-    light: (
+//     light: (
 
-        page-bg: $light,
-        page-text: $dark,
-        lines: $dark,
-        button-bg: $accent,
-        button-shadow: $dark,
+//         page-bg: $light,
+//         page-text: $dark,
+//         lines: $dark,
+//         button-bg: $accent,
+//         button-shadow: $dark,
 
-    ),
+//     ),
 
-    dark: (
+//     dark: (
 
-        page-bg: $dark,
-        page-text: $light,
-        lines: $light,
-        button-bg: transparent,
-        button-shadow: $accent,
+//         page-bg: $dark,
+//         page-text: $light,
+//         lines: $light,
+//         button-bg: transparent,
+//         button-shadow: $accent,
 
-    )
+//     )
 
-);
+// );
 
 // Generate map of styles for each theme
-@mixin themeGenerator($themes) {
+// @mixin themeGenerator($themes) {
 
-    @each $theme, $styles in $themes {
+//     @each $theme, $styles in $themes {
 
-        .theme-#{$theme} & {
+//         .theme-#{$theme} & {
 
-            $theme-map: () !global;
+//             $theme-map: () !global;
 
-            @each $property, $style in $styles {
+//             @each $property, $style in $styles {
 
-                $value: map-get(map-get($themes, $theme), $property);
+//                 $value: map-get(map-get($themes, $theme), $property);
 
-                $theme-map: map-merge($theme-map , ($property: $value) ) !global;
+//                 $theme-map: map-merge($theme-map , ($property: $value) ) !global;
 
-            };
+//             };
 
-            @content;
-            $theme-map: null !global;
+//             @content;
+//             $theme-map: null !global;
 
-        };
+//         };
 
-    };
+//     };
 
-};
+// };
 
 // Retrieve style property base on current theme
-@function getThemeStyle($property) {
+// @function getThemeStyle($property) {
 
-    @return map-get($theme-map, $property);
+//     @return map-get($theme-map, $property);
 
-};
+// };
 
 // Button styles
 @mixin button {
 
-    @include themeGenerator($themes) {
-        background: getThemeStyle('button-bg');
-    }
+    // @include themeGenerator($themes) {
+    //     background: getThemeStyle('button-bg');
+    // }
 
+    background: transparent;
     font-size: 1.1em;
     color: $light;
     padding: 0.5em 2.5em;
@@ -89,9 +90,7 @@ $themes: (
 
     &::before {
 
-        @include themeGenerator($themes) {
-            background-color: getThemeStyle('button-shadow');
-        }
+        background-color: $accent;
 
         content: "";
         position: absolute;

@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora&family=Poppins:wght@300;500;700&display=swap');
 
+@import './_variables.scss';
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -29,6 +31,8 @@ body {
   	font-family: 'Poppins', sans-serif;
 	line-height: 1;
 	overflow-x: hidden;
+	background-color: $dark;
+	color: $light;
 }
 ol, ul {
 	list-style: none;
