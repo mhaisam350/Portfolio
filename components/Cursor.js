@@ -12,17 +12,13 @@ export default function Cursor() {
         const mouseMoveListener = (e) => {
 
             cursorInner.current.setAttribute('style',
-                `transform: translate3d(${e.clientX - 5}px, ${innerHeight - e.clientY <= 34 ? innerHeight - 39 : e.clientY - 5}px, 0);`
+                `translate: ${e.clientX - 5}px ${innerHeight - e.clientY <= 34 ? innerHeight - 39 : e.clientY - 5}px 0;`
             );
-
-            // cursorInner.current.setAttribute('style',
-            //     `transform: translate3d(${e.pageX - 5}px, ${e.pageY - 5}px, 0);`
-            // );
 
             setTimeout(() => {
 
                 cursorOuter.current.setAttribute('style',
-                    `transform: translate3d(${(e.clientX - 31)}px, ${innerHeight - e.clientY <= 34 ? innerHeight - 65 : e.clientY - 31}px, 0);`
+                    `translate: ${(e.clientX - 31)}px ${innerHeight - e.clientY <= 34 ? innerHeight - 65 : e.clientY - 31}px 0;`
                 );
 
             }, 50);
@@ -31,12 +27,32 @@ export default function Cursor() {
 
         };
 
+        const mouseDownListener = (e) => {
+
+            cursorOuter.current.setAttribute('style',
+                `translate: ${(e.clientX - 31)}px ${innerHeight - e.clientY <= 34 ? innerHeight - 65 : e.clientY - 31}px 0; scale: 0.8;`
+            );
+
+        };
+
+        const mouseUpListener = (e) => {
+
+            cursorOuter.current.setAttribute('style',
+                `translate: ${(e.clientX - 31)}px ${innerHeight - e.clientY <= 34 ? innerHeight - 65 : e.clientY - 31}px 0;`
+            );
+
+        };
+
         
         document.addEventListener('mousemove', mouseMoveListener);
+        document.addEventListener('mousedown', mouseDownListener);
+        document.addEventListener('mouseup', mouseUpListener);
 
         return () => {
 
             document.removeEventListener('mousemove', mouseMoveListener);
+            document.removeEventListener('mousedown', mouseDownListener);
+            document.removeEventListener('mouseup', mouseUpListener);
 
         };
 

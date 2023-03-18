@@ -21,6 +21,7 @@
     opacity: 0.5;
     pointer-events: none;
     z-index: 99;
+    transition: scale 0.2s ease-out ;
 }
 
 @media (max-width: 800px) {
