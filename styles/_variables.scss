@@ -67,6 +67,14 @@ $accent: #FF8906;
 
 // };
 
+.section-heading {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 2.5em;
+    padding-bottom: 0.5em;
+    line-height: 1.2;
+}
+
 // Button styles
 @mixin button {
 
