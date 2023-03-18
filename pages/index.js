@@ -1,3 +1,5 @@
+import { useEffect, useRef } from 'react';
+
 import Head from 'next/head';
 
 // import { useThemeContext } from '../contexts/ThemeContext';
@@ -8,8 +10,10 @@ import styles from '@/styles/Home.module.scss';
 import ProjectDisplay from '@/components/ProjectDisplay';
 import SkillTab from '@/components/SkillTab';
 
-import data from '@/data/projects.json';
+import Canvas from '@/components/Canvas';
+import Cursor from '@/components/Cursor';
 
+import data from '@/data/projects.json';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLink } from '@fortawesome/free-solid-svg-icons';
@@ -19,9 +23,32 @@ export default function Home() {
 
   const { projects } = data;
 
+  const header = useRef();
+
   // const { theme } = useThemeContext();
 
   // const themeClass = theme === 'dark' ? styles['theme-dark'] : styles['theme-light'];
+
+  useEffect(() => {
+
+    const mouseMoveListener = (e) => {
+
+      let mouseX = e.offsetX - (innerWidth/2);
+      let mouseY = e.offsetY - (innerHeight/2);
+
+      header.current.style.transform = `translate(${-mouseX/100}px, ${-mouseY/500}px)`;
+
+    };
+
+    window.addEventListener('mousemove', mouseMoveListener);
+
+    return () => {
+
+      window.removeEventListener('mousemove', mouseMoveListener);
+
+    };
+
+  });
 
   return (
 
@@ -37,8 +64,12 @@ export default function Home() {
 
         {/* <Navigation /> */}
 
+        <Canvas />
+        
+        <Cursor />
+
         {/* Header section */}
-        <header className={'flex' + " " + styles['header']}>
+        <header ref={header} className={'flex' + " " + styles['header']}>
 
           <div className={'flex' + " " + styles['header-flex-container']}>
 
@@ -56,7 +87,7 @@ export default function Home() {
 
           </div>
 
-          <button className={styles['button']}>About me</button>
+          {/* <button className={styles['button']}>About me</button> */}
 
         </header>
 

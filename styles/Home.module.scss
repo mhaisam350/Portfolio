@@ -1,13 +1,5 @@
 @import './variables';
 
-.theme-light {
-    background-color: $light;
-}
-
-.theme-dark {
-    background-color: $dark;
-}
-
 // .container {
 //     @include themeGenerator($themes) {
 //         color: getThemeStyle('page-text');
@@ -19,6 +11,24 @@
 
 .accent-text {
     color: $accent;
+    position: relative;
+    text-shadow: 0 0 0.1em rgb(100, 98, 98), 0 0 0.45em $accent;
+
+    // &::before {
+
+    //     background-color: $accent;
+
+    //     content: "";
+    //     position: absolute;
+    //     top: 70%;
+    //     left: 0;
+    //     width: 100%;
+    //     height: 100%;
+    //     opacity: 0.7;
+        
+    //     transform: perspective(1em) rotateX(60deg) scale(0.9, 0.3);
+    //     filter: blur(0.8em);
+    // }
 }
 
 .section-heading {
@@ -31,13 +41,14 @@
 
 // Header section
 .header {
-    height: 100vh;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    width: 100%;
+    max-width: 90%;
     margin: 0 auto;
-    // padding-bottom: $bottom-padding;
+    z-index: 9;
+    pointer-events: none;
+    height: 100vh;
 }
 
 .header-flex-container {
@@ -63,10 +74,7 @@
 .header-divider {
     height: 3px;
     width: 70%;
-
-    // @include themeGenerator($themes) {
-    //     background-color: getThemeStyle('lines');
-    // }
+    background-color: $light;
 }
 
 .header-subheading {
@@ -78,11 +86,13 @@
 .button {
     @include button;
     margin-top: 2em;
+    pointer-events: all;
 }
 
 // About section
 .about {
     padding-bottom: $bottom-padding;
+    // z-index: 99;
 }
 
 .about-flex-container {
@@ -118,9 +128,9 @@
 }
 
 // Featured projects section
-.featured-projects {
-    // height: 100vh;
-}
+// .featured-projects {
+//     // height: 100vh;
+// }
 
 // Contact section
 .contact {
@@ -256,13 +266,16 @@
 
 @media (min-width: 1024px) {
 
-    .container {
-        padding: 0 1em 0 4em;
-        max-width: 1300px;
-    }
+    // .container {
+    //     padding: 0 1em 0 4em;
+    //     max-width: 1300px;
+    // }
 
     .header {
-        width: 80%;
+        max-width: 1000px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
     }
 
     .about-flex-container {

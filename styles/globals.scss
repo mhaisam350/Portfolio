@@ -31,8 +31,9 @@ body {
   	font-family: 'Poppins', sans-serif;
 	line-height: 1;
 	overflow-x: hidden;
-	background-color: $dark;
+	background-color: #000;
 	color: $light;
+	cursor: none;
 }
 ol, ul {
 	list-style: none;
@@ -51,17 +52,17 @@ table {
 }
 
 .flex {
-  display: flex
+  	display: flex;
 }
 
 .grid {
-  display: grid;
+  	display: grid;
 }
 
 .relative {
-  position: relative;
+  	position: relative;
 }
 
 .center {
-	text-align: center;
+  	text-align: center;
 }
