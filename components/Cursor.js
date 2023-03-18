@@ -16,7 +16,7 @@ export default function Cursor() {
             );
 
             // cursorInner.current.setAttribute('style',
-            //     `transform: translate3d(${e.clientX - 5}px, ${e.clientY - 5}px, 0);`
+            //     `transform: translate3d(${e.pageX - 5}px, ${e.pageY - 5}px, 0);`
             // );
 
             setTimeout(() => {
@@ -26,11 +26,12 @@ export default function Cursor() {
                 );
 
             }, 50);
-            console.log(innerHeight, e.clientY, e.clientY-5);
+
+            // console.log(e);
 
         };
 
-
+        
         document.addEventListener('mousemove', mouseMoveListener);
 
         return () => {
