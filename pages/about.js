@@ -1,3 +1,5 @@
+import { useEffect, useRef } from 'react';
+
 import Head from 'next/head';
 
 import styles from '@/styles/About.module.scss';
@@ -8,6 +10,8 @@ import SkillTab from '@/components/SkillTab';
 import Canvas from '@/components/Canvas';
 import Cursor from '@/components/Cursor';
 
+import useEventListener from '@/hooks/useEventListener';
+
 import data from '@/data/projects.json';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,6 +19,31 @@ import { faEnvelope, faLink } from '@fortawesome/free-solid-svg-icons';
 import { faGit, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 export default function Home() {
+
+    const about = useRef();
+
+    useEventListener(about);
+
+    // useEffect(() => {
+
+    //     const mouseMoveListener = (e) => {
+    
+    //       let mouseX = e.offsetX - (innerWidth/2);
+    //       let mouseY = e.offsetY - (innerHeight/2);
+    
+    //       about.current.style.transform = `translate(${-mouseX/100}px, ${-mouseY/500}px)`;
+    
+    //     };
+    
+    //     window.addEventListener('mousemove', mouseMoveListener);
+    
+    //     return () => {
+    
+    //       window.removeEventListener('mousemove', mouseMoveListener);
+    
+    //     };
+    
+    //   });
 
     return (
 
@@ -31,7 +60,7 @@ export default function Home() {
             <Cursor />
 
 
-            <section className={'flex' + " " + styles['about']}>
+            <section ref={about} className={'flex' + " " + styles['about']}>
 
                 <div>
 
