@@ -11,14 +11,12 @@ import Canvas from '@/components/Canvas';
 import Cursor from '@/components/Cursor';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faLink } from '@fortawesome/free-solid-svg-icons';
-import { faGit, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 export default function Contact() {
 
     const contact = useRef();
-
-    // const icon = useRef();
 
     useEventListener(contact);
 
@@ -46,10 +44,6 @@ export default function Contact() {
 
                     <section className={styles['contact-icons']}>
 
-                        {/* <div className={styles['contact-line']}></div> */}
-
-                        {/* <div> */}
-
                             <Link href='/' className={styles['contact-link']}>
 
                                 <FontAwesomeIcon className={styles['contact-icon']} icon={faEnvelope} />
@@ -67,10 +61,6 @@ export default function Contact() {
                                 <FontAwesomeIcon className={styles['contact-icon']} icon={faLinkedin} />
 
                             </Link>
-
-                        {/* </div> */}
-
-                        {/* <div className={styles['contact-line']}></div> */}
 
                     </section>
 
