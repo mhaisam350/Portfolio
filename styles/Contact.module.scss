@@ -15,9 +15,7 @@
 }
 
 .contact-icons {
-    align-items: center;
     width: 100%;
-    justify-content: space-evenly;
 }
 
 // .contact-line {
@@ -26,12 +24,15 @@
 //     background-color: $light;
 // }
 
+.contact-link:not(:last-child) {
+        margin-right: 2em;
+}
+
 .contact-icon {
     color: $accent;
     font-size: 2em;
-    // pointer-events: auto;
 
-    &:not(:last-child) {
-        margin-right: 1em;;
-    }
+    // &:not(:last-child) {
+    //     margin-right: 1em;;
+    // }
 }

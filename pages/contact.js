@@ -1,6 +1,7 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 import Head from 'next/head';
+import Link from 'next/link';
 
 import styles from '@/styles/Contact.module.scss';
 
@@ -17,19 +18,9 @@ export default function Contact() {
 
     const contact = useRef();
 
-    const icon = useRef();
+    // const icon = useRef();
 
     useEventListener(contact);
-
-    // useEffect(() => {
-
-    //     document.addEventListener('click', (e) => {
-
-    //         console.log(e);
-
-    //     });
-
-    // });
 
     return (
 
@@ -53,19 +44,31 @@ export default function Contact() {
 
                     <p className={styles['contact-paragraph']}>Whether you have a question, feedback, or want to work together, I'd love to hear from you! </p>
 
-                    <section className={'flex' + " " + styles['contact-icons']}>
+                    <section className={styles['contact-icons']}>
 
                         {/* <div className={styles['contact-line']}></div> */}
 
-                        <div>
+                        {/* <div> */}
 
-                            <FontAwesomeIcon ref={icon} className={styles['contact-icon']} icon={faEnvelope} />
+                            <Link href='/' className={styles['contact-link']}>
 
-                            <FontAwesomeIcon className={styles['contact-icon']} icon={faGithub} />
+                                <FontAwesomeIcon className={styles['contact-icon']} icon={faEnvelope} />
+                                
+                            </Link>
 
-                            <FontAwesomeIcon className={styles['contact-icon']} icon={faLinkedin} />
+                            <Link href='/' className={styles['contact-link']}>
+                                
+                                <FontAwesomeIcon className={styles['contact-icon']} icon={faGithub} />
 
-                        </div>
+                            </Link>
+
+                            <Link href='/' className={styles['contact-link']}>
+
+                                <FontAwesomeIcon className={styles['contact-icon']} icon={faLinkedin} />
+
+                            </Link>
+
+                        {/* </div> */}
 
                         {/* <div className={styles['contact-line']}></div> */}
 
