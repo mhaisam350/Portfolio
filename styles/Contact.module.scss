@@ -6,6 +6,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    z-index: 9;
 }
 
 .contact-paragraph {
@@ -24,4 +25,9 @@
 .contact-icon {
     color: $accent;
     font-size: 2em;
+    transition: color 0.15s ease-in;
+
+    &:hover {  
+        color: $light;
+    }
 }

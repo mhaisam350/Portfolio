@@ -10,6 +10,8 @@ export default function Canvas() {
 
     useEffect(() => {
 
+        // console.log(canvas.current);
+
         const canvasContext = canvas.current.getContext('2d');
 
         canvasContext.canvas.width = innerWidth;

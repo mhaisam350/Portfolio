@@ -23,7 +23,7 @@ export default function Cursor() {
 
             }, 50);
 
-            // console.log(e);
+            // console.log(e.target.tagName);
 
         };
 
