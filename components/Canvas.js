@@ -47,11 +47,11 @@ export default function Canvas() {
 
         Particle.prototype.update = function() {
 
-            if (this.x + this.size > canvas.current.width || this.x - this.size < 0) {
+            if (this.x + this.size > canvasContext.canvas.width || this.x - this.size < 0) {
                 this.dX = -this.dX;
             };
 
-            if (this.y + this.size > canvas.current.height || this.y - this.size < 0) {
+            if (this.y + this.size > canvasContext.canvas.height || this.y - this.size < 0) {
                 this.dY = -this.dY;
             };
 
