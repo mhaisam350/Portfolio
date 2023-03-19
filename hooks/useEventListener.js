@@ -6,8 +6,8 @@ export default function useEventListener(ref) {
 
         const mouseMoveListener = (e) => {
     
-          let mouseX = e.offsetX - (innerWidth/2);
-          let mouseY = e.offsetY - (innerHeight/2);
+          let mouseX = e.clientX - (innerWidth/2);
+          let mouseY = e.clientY - (innerHeight/2);
     
           ref.current.style.transform = `translate(${-mouseX/100}px, ${-mouseY/500}px)`;
     

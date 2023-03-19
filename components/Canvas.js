@@ -96,8 +96,8 @@ export default function Canvas() {
 
         const mouseMoveListener = (e) => {
             
-            let mouseX = e.offsetX - (innerWidth/2);
-            let mouseY = e.offsetY - (innerHeight/2);
+            let mouseX = e.clientX - (innerWidth/2);
+            let mouseY = e.clientY - (innerHeight/2);
 
             // for (let i = 0; i < particleArray.length; i++) {
             //     particleArray[i].dX += mouseX/100000;
