@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 import Head from 'next/head';
 
@@ -13,6 +13,8 @@ import SkillTab from '@/components/SkillTab';
 import Canvas from '@/components/Canvas';
 import Cursor from '@/components/Cursor';
 
+import useEventListener from '@/hooks/useEventListener';
+
 import data from '@/data/projects.json';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -25,30 +27,28 @@ export default function Home() {
 
   const header = useRef();
 
-  // const { theme } = useThemeContext();
+  useEventListener(header);
 
-  // const themeClass = theme === 'dark' ? styles['theme-dark'] : styles['theme-light'];
+  // useEffect(() => {
 
-  useEffect(() => {
+  //   const mouseMoveListener = (e) => {
 
-    const mouseMoveListener = (e) => {
+  //     let mouseX = e.offsetX - (innerWidth/2);
+  //     let mouseY = e.offsetY - (innerHeight/2);
 
-      let mouseX = e.offsetX - (innerWidth/2);
-      let mouseY = e.offsetY - (innerHeight/2);
+  //     header.current.style.transform = `translate(${-mouseX/100}px, ${-mouseY/500}px)`;
 
-      header.current.style.transform = `translate(${-mouseX/100}px, ${-mouseY/500}px)`;
+  //   };
 
-    };
+  //   window.addEventListener('mousemove', mouseMoveListener);
 
-    window.addEventListener('mousemove', mouseMoveListener);
+  //   return () => {
 
-    return () => {
+  //     window.removeEventListener('mousemove', mouseMoveListener);
 
-      window.removeEventListener('mousemove', mouseMoveListener);
+  //   };
 
-    };
-
-  });
+  // });
 
   return (
 
