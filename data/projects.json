@@ -2,7 +2,7 @@
    "projects": [
         {
             "title": "Eon Motors",
-            "description": "A headless ecommerce website for a fictional company, built using Shopify's Storefront api, GraphQL, and NextJS. Category and Product pages are built and displayed dynamically with dynamic routes. Users can add and remove items to and from their carts.",
+            "description": "A headless ecommerce website for a fictional company, built using Shopify's Storefront api, GraphQL, and NextJS.",
             "image": "static/images/eon.png",
             "github": "https://github.com/mhaisam350/Eon",
             "live": "https://eon-motors.vercel.app/"
@@ -13,7 +13,7 @@
             "description": "Nooks & Crannies is a house cleaning service in Dubai. The website is built using NextJS' static export feature, resulting in a fast and responsive experience.",
             "image": "static/images/nooks.png",
             "github": "https://github.com/mhaisam350/Eon",
-            "live": "https://eon-motors.vercel.app/"
+            "live": "https://nooksandcrannies.ae"
         },
 
         {
@@ -21,7 +21,7 @@
             "description": "A prototype React chat application featuring real time communication using NodeJS and SocketIO. ",
             "image": "static/images/discourse.png",
             "github": "https://github.com/mhaisam350/Eon",
-            "live": "https://eon-motors.vercel.app/"
+            "live": "https://discourse-chat-59782d.netlify.app/"
         }
    ]   
 }
