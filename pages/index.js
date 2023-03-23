@@ -10,6 +10,7 @@ import Canvas from '@/components/Canvas';
 import Cursor from '@/components/Cursor';
 
 import useMouseEventListener from '@/hooks/useMouseEventListener';
+import useMobileNavTransition from '@/hooks/useMobileNavTransition';
 
 import { useNavContext } from '@/contexts/NavContext';
 
@@ -23,11 +24,7 @@ export default function Home() {
 
   useMouseEventListener(header);
 
-  useEffect(() => {
-
-    navToggle ? container.current.style.translate = '-70%' : container.current.style.translate = '0';
-
-  }, [navToggle]);
+  useMobileNavTransition(container);
 
   useEffect(() => {
 
