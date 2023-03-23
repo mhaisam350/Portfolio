@@ -2,56 +2,42 @@ import { useRef, useEffect } from 'react';
 
 import Head from 'next/head';
 
-// import { useThemeContext } from '../contexts/ThemeContext';
-
 import styles from '@/styles/Home.module.scss';
 
 import Navigation from '@/components/Navigation';
-import ProjectDisplay from '@/components/ProjectDisplay';
-import SkillTab from '@/components/SkillTab';
 
 import Canvas from '@/components/Canvas';
 import Cursor from '@/components/Cursor';
 
 import useEventListener from '@/hooks/useEventListener';
 
-import data from '@/data/projects.json';
-
 import { useNavContext } from '@/contexts/NavContext';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faLink } from '@fortawesome/free-solid-svg-icons';
-import { faGit, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-
 export default function Home() {
-
-  const { projects } = data;
 
   const { navToggle } = useNavContext()
 
   const header = useRef();
   
-  const test = useRef();
+  const container = useRef();
 
   useEventListener(header);
 
   useEffect(() => {
 
-    navToggle ? test.current.style.translate = '-70%' : test.current.style.translate = '0';
+    navToggle ? container.current.style.translate = '-70%' : container.current.style.translate = '0';
 
   }, [navToggle]);
 
   useEffect(() => {
 
-    innerWidth >= 1024 ? test.current.style.overflow = 'hidden' : test.current.style.overflowY = 'auto';
+    innerWidth >= 1024 ? container.current.style.overflow = 'hidden' : container.current.style.overflowY = 'auto';
 
   });
 
   return (
 
     <>
-
-      {/* <div className={styles.container}> */}
 
         <Head>
           <title>Haisam | Front End Developer</title>
@@ -61,153 +47,46 @@ export default function Home() {
 
         <Navigation />
 
-        <div ref={test} className={styles.test}>
+        <div ref={container} className={styles.container}>
 
-        <Canvas />
+          <Canvas />
 
-        <Cursor />
+          <Cursor />
 
 
-        {/* Header section */}
-        <header ref={header} className={'flex' + " " + styles['header']}>
+          {/* Header section */}
+          <header ref={header} className={'flex' + " " + styles['header']}>
 
-          <div className={'flex' + " " + styles['header-flex-container']}>
+            <div className={'flex' + " " + styles['header-flex-container']}>
 
-            <h1 className={styles['header-heading']}>
-              Hello! <br /> I'm <span className={styles['accent-text']}>Haisam</span>.
-            </h1>
-            
-            <div className={'flex' + " " + styles['subheading-container']}>
+              <h1 className={styles['header-heading']}>
+                Hello! <br /> I'm <span className={styles['accent-text']}>Haisam</span>.
+              </h1>
+              
+              <div className={'flex' + " " + styles['subheading-container']}>
 
-              <div className={styles['header-divider']}></div>
+                <div className={styles['header-divider']}></div>
 
-              <h2 className={styles['header-subheading']}>Front End <br /> ReactJS <br /> Developer </h2>
+                <h2 className={styles['header-subheading']}>Front End <br /> ReactJS <br /> Developer </h2>
 
-            </div>
-
-          </div>
-
-          {/* <button className={styles['button']}>About me</button> */}
-
-        </header>
-
-        {/* About section */}
-        {/* <section className={styles['about']}>
-
-            <h2 className={styles['section-heading']}>About Me</h2>
-
-            <div className={'flex' + " " + styles['about-flex-container']}>
-
-              <section className={styles['about-text']}>
-
-                <p className={styles['about-paragraph']}>
-                  I'm a front-end web developer based in Pakistan with one year of freelance experience building web pages and applications.
-                </p>
-
-                <p className={styles['about-paragraph']}>
-                  While my primary strength and focus is web development, my programming journey began as a self-learner dabbling in C# while working 
-                  on a prototype for a video game on Unity Engine. This eventually led me to pick up Javascript and Python, 
-                  and shifted my attention to web development. 
-                  The never-ending excitement of continually improving and expanding my skill 
-                  set is what has driven my passion for software development.
-                </p>
-
-                <p className={styles['about-paragraph']}>
-                  These days I primarily work with React, and I'm always looking for oppurtunities to further develop my career.
-                </p>
-
-              </section>
-
-              <section className={styles['about-skills']}>
-
-                <h3 className={styles['skills-heading']}>My Skills:</h3>
-
-                <ul className={'flex' + " " + styles['skills-list']}>
-                
-                  <SkillTab text={'HTML'} />
-
-                  <SkillTab text={'CSS/SCSS'} />
-
-                  <SkillTab text={'Javascript'} />
-
-                  <SkillTab text={'Typescript'} />
-
-                </ul>
-
-                <ul className={'flex' + " " + styles['skills-list']}>
-                
-                  <SkillTab text={'ReactJS'} />
-
-                  <SkillTab text={'NextJS'} />
-
-                  <SkillTab text={'NodeJS'} />
-
-                  <SkillTab text={'Git'} />
-
-                </ul>
-
-              </section>
+              </div>
 
             </div>
 
-        </section> */}
+            {/* <button className={styles['button']}>About me</button> */}
 
-        {/* Projects section */}
-        {/* <section className={styles['featured-projects']}>
+          </header>
 
-          <h2 className={'center' + " " + styles['section-heading']}>Featured Projects</h2>
+        {/* Footer section */}
+        {/* <footer className={styles.footer + " " + 'flex'}>
+                              
+          <FontAwesomeIcon className={styles['footer-icon']} icon={faGithub} />
 
-          {
+          <FontAwesomeIcon className={styles['footer-icon']} icon={faLinkedin} />
 
-            projects.map((project, index) => (
+          <div className={styles['footer-line']}></div>
 
-              <ProjectDisplay key={index} index={index} project={project} />
-
-            ))
-
-          }
-
-        </section> */}
-
-        {/* Contact section */}
-        {/* <section className={'flex' + " " + styles['contact']}>
-
-          <h2 className={styles['section-heading']}>Contact</h2>
-
-          <p className={styles['contact-paragraph']}>Whether you have a question, feedback, or want to work together, I'd love to hear from you! </p>
-
-          <section className={'flex' + " " + styles['contact-icons']}>
-
-            <div className={styles['contact-line']}></div>
-
-            <div>
-
-              <FontAwesomeIcon className={styles['contact-icon']} icon={faEnvelope} />
-
-              <FontAwesomeIcon className={styles['contact-icon']} icon={faGithub} />
-
-              <FontAwesomeIcon className={styles['contact-icon']} icon={faLinkedin} />
-
-            </div>
-
-            <div className={styles['contact-line']}></div>
-
-          </section>
-
-        </section> */}
-
-      {/* </div> */}
-
-      {/* Footer section */}
-      {/* <footer className={styles.footer + " " + 'flex'}>
-                            
-        <FontAwesomeIcon className={styles['footer-icon']} icon={faGithub} />
-
-        <FontAwesomeIcon className={styles['footer-icon']} icon={faLinkedin} />
-
-        <div className={styles['footer-line']}></div>
-
-      </footer> */}
+        </footer> */}
 
       </div>
 
