@@ -1,19 +1,55 @@
-// import Link from "next/link";
+import { useState } from 'react';
 
-// import styles from '@/styles/Navigation.module.scss';
+import Link from 'next/link';
 
-// import ThemeSwitch from "./ThemeSwitch";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faSquareXmark } from '@fortawesome/free-solid-svg-icons';
 
-// export default function Navigation() {
+import styles from '@/styles/Navigation.module.scss';
 
-//     return (
+import { useNavContext } from '@/contexts/NavContext';
 
-//         <nav>
-        
-//             <ThemeSwitch />
+export default function Navigation() {
 
-//         </nav>
+    // const [navToggle, setNavtoggle] = useState(false);
 
-//     )
+    const { navToggle, setNavtoggle } = useNavContext();
 
-// }
+    const navToggleClass = navToggle ? styles['nav-show'] : styles['nav-hide'];
+
+    return (
+
+        <nav className={styles['nav']}>
+
+            <div className={'flex' + " " + styles['nav-subcontainer']}>
+
+                <span >
+                    <Link  href='/'><img className={styles.logo} src={'/static/images/EMotors.png'} alt='Logo picture of bike' /> </Link>
+                </span>
+
+                <menu className={'flex' + " " + styles['nav-menu'] + " " + navToggleClass}>
+
+                    <li className={styles['menu-item']}>
+                        <Link href='/about' className={styles['menu-link']}>About</Link>
+                    </li>
+
+                    <li className={styles['menu-item']}>
+                        <Link href='/projects' className={styles['menu-link']}>Projects</Link>
+                    </li>
+
+                    <li className={styles['menu-item']}>
+                        <Link href='/contact' className={styles['menu-link']}>Contact</Link>
+                    </li>
+
+                </menu>
+                    
+                {/* <button onClick={() => setNavtoggle(!navToggle)} className={styles['mobile-toggle']}>III</button> */}
+                <button onClick={() => setNavtoggle(!navToggle)} className={styles['mobile-toggle']}>III</button>
+
+            </div>
+
+        </nav>
+
+    )
+  
+}

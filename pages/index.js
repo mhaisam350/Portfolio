@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 
 import Head from 'next/head';
 
@@ -6,7 +6,7 @@ import Head from 'next/head';
 
 import styles from '@/styles/Home.module.scss';
 
-// import Navigation from '@/components/Navigation';
+import Navigation from '@/components/Navigation';
 import ProjectDisplay from '@/components/ProjectDisplay';
 import SkillTab from '@/components/SkillTab';
 
@@ -17,6 +17,8 @@ import useEventListener from '@/hooks/useEventListener';
 
 import data from '@/data/projects.json';
 
+import { useNavContext } from '@/contexts/NavContext';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLink } from '@fortawesome/free-solid-svg-icons';
 import { faGit, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
@@ -25,30 +27,25 @@ export default function Home() {
 
   const { projects } = data;
 
+  const { navToggle } = useNavContext()
+
   const header = useRef();
+  
+  const test = useRef();
 
   useEventListener(header);
 
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   const mouseMoveListener = (e) => {
+    navToggle ? test.current.style.translate = '-70%' : test.current.style.translate = '0';
 
-  //     let mouseX = e.offsetX - (innerWidth/2);
-  //     let mouseY = e.offsetY - (innerHeight/2);
+  }, [navToggle]);
 
-  //     header.current.style.transform = `translate(${-mouseX/100}px, ${-mouseY/500}px)`;
+  useEffect(() => {
 
-  //   };
+    innerWidth >= 1024 ? test.current.style.overflow = 'hidden' : test.current.style.overflowY = 'auto';
 
-  //   window.addEventListener('mousemove', mouseMoveListener);
-
-  //   return () => {
-
-  //     window.removeEventListener('mousemove', mouseMoveListener);
-
-  //   };
-
-  // });
+  });
 
   return (
 
@@ -62,11 +59,14 @@ export default function Home() {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
 
-        {/* <Navigation /> */}
+        <Navigation />
+
+        <div ref={test} className={styles.test}>
 
         <Canvas />
 
         <Cursor />
+
 
         {/* Header section */}
         <header ref={header} className={'flex' + " " + styles['header']}>
@@ -208,6 +208,8 @@ export default function Home() {
         <div className={styles['footer-line']}></div>
 
       </footer> */}
+
+      </div>
 
     </>
 
