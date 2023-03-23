@@ -10,14 +10,14 @@ import SkillTab from '@/components/SkillTab';
 import Canvas from '@/components/Canvas';
 import Cursor from '@/components/Cursor';
 
-import useEventListener from '@/hooks/useEventListener';
+import useMouseEventListener from '@/hooks/useMouseEventListener';
 
 
 export default function About() {
 
     const about = useRef();
 
-    useEventListener(about);
+    useMouseEventListener(about);
 
     return (
 

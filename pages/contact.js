@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import styles from '@/styles/Contact.module.scss';
 
-import useEventListener from '@/hooks/useEventListener';
+import useMouseEventListener from '@/hooks/useMouseEventListener';
 
 import Canvas from '@/components/Canvas';
 import Cursor from '@/components/Cursor';
@@ -18,7 +18,7 @@ export default function Contact() {
 
     const contact = useRef();
 
-    useEventListener(contact);
+    useMouseEventListener(contact);
 
     return (
 

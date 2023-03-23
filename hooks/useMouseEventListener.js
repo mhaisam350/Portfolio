@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export default function useEventListener(ref) {
+export default function useMouseEventListener(ref) {
 
     useEffect(() => {
 

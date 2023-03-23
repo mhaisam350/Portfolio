@@ -9,7 +9,7 @@ import Navigation from '@/components/Navigation';
 import Canvas from '@/components/Canvas';
 import Cursor from '@/components/Cursor';
 
-import useEventListener from '@/hooks/useEventListener';
+import useMouseEventListener from '@/hooks/useMouseEventListener';
 
 import { useNavContext } from '@/contexts/NavContext';
 
@@ -21,7 +21,7 @@ export default function Home() {
   
   const container = useRef();
 
-  useEventListener(header);
+  useMouseEventListener(header);
 
   useEffect(() => {
 

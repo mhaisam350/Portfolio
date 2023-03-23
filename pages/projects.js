@@ -11,7 +11,7 @@ import ProjectDisplay from '@/components/ProjectDisplay';
 import Canvas from '@/components/Canvas';
 import Cursor from '@/components/Cursor';
 
-import useEventListener from '@/hooks/useEventListener';
+import useMouseEventListener from '@/hooks/useMouseEventListener';
 
 import data from '@/data/projects.json';
 
@@ -23,7 +23,7 @@ export default function Projects() {
 
     const projectsSection = useRef();
 
-    useEventListener(projectsSection);
+    useMouseEventListener(projectsSection);
 
     const { projects } = data;
 
