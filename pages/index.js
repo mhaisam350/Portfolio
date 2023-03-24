@@ -44,7 +44,7 @@ export default function Home() {
 
         <Navigation />
 
-        <div ref={container} className={styles.container}>
+        <div ref={container} className={'container'}>
 
           <Canvas />
 

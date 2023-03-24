@@ -5,25 +5,24 @@ import Link from 'next/link';
 
 import styles from '@/styles/Projects.module.scss';
 
-// import Navigation from '@/components/Navigation';
+import Navigation from '@/components/Navigation';
 import ProjectDisplay from '@/components/ProjectDisplay';
 
 import Canvas from '@/components/Canvas';
 import Cursor from '@/components/Cursor';
 
 import useMouseEventListener from '@/hooks/useMouseEventListener';
+import useMobileNavTransition from '@/hooks/useMobileNavTransition';
 
 import data from '@/data/projects.json';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLink } from '@fortawesome/free-solid-svg-icons';
-import { faGit } from '@fortawesome/free-brands-svg-icons';
 
 export default function Projects() {
 
     const projectsSection = useRef();
+    const container = useRef();
 
     useMouseEventListener(projectsSection);
+    useMobileNavTransition(container);
 
     const { projects } = data;
 
@@ -37,33 +36,39 @@ export default function Projects() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
 
-            <Canvas />
+            <Navigation />
 
-            <Cursor />
+            <div ref={container} className={'container'}>
 
-            <section ref={projectsSection} className={'flex' + " " + styles['projects']}>
+                <Canvas />
 
-                <div>
+                <Cursor />
 
-                    <h2 className={'section-heading'}>Projects</h2>
+                <section ref={projectsSection} className={'flex' + " " + styles['projects']}>
 
-                    <div className={'grid' + " " + styles['projects-grid']}>
+                    <div>
 
-                        {
+                        <h2 className={'section-heading'}>Projects</h2>
 
-                            projects.map((project, index) => (
+                        <div className={'grid' + " " + styles['projects-grid']}>
 
-                            <ProjectDisplay key={index} project={project} />
+                            {
 
-                            ))
+                                projects.map((project, index) => (
 
-                        }
+                                <ProjectDisplay key={index} project={project} />
+
+                                ))
+
+                            }
+
+                        </div>
 
                     </div>
 
-                </div>
+                </section>
 
-            </section>
+            </div>
 
         </>
 

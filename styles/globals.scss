@@ -80,6 +80,10 @@ a {
 	color: $accent;
 }
 
+.container {
+	transition: translate 0.4s;
+}
+
 @media (min-width: 800px) {
 
     .section-heading {
