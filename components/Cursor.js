@@ -17,9 +17,13 @@ export default function Cursor() {
 
             setTimeout(() => {
 
-                cursorOuter.current.setAttribute('style',
-                    `translate: ${(e.clientX - 31)}px ${innerHeight - e.clientY <= 34 ? innerHeight - 65 : e.clientY - 31}px 0;`
-                );
+                if (cursorOuter.current) {
+
+                    cursorOuter.current.setAttribute('style',
+                        `translate: ${(e.clientX - 31)}px ${innerHeight - e.clientY <= 34 ? innerHeight - 65 : e.clientY - 31}px 0;`
+                    );
+
+                };
 
             }, 50);
 
