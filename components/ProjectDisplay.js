@@ -8,7 +8,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 export default function ProjectDisplay( { project } ) {
 
-    console.log(project);
+    // console.log(project);
 
     return (
 

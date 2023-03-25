@@ -32,6 +32,7 @@ body {
 	line-height: 1;
 	overflow-x: hidden;
 	background-color: #000;
+	// background-color: red;
 	color: $light;
 }
 ol, ul, menu {
@@ -78,10 +79,6 @@ a {
     padding-bottom: 0.5em;
     line-height: 1.2;
 	color: $accent;
-}
-
-.container {
-	transition: translate 0.4s;
 }
 
 @media (min-width: 800px) {

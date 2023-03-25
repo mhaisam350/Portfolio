@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 
 import Head from 'next/head';
 
@@ -12,25 +12,19 @@ import Cursor from '@/components/Cursor';
 import useMouseEventListener from '@/hooks/useMouseEventListener';
 import useMobileNavTransition from '@/hooks/useMobileNavTransition';
 
-import { useNavContext } from '@/contexts/NavContext';
-
 export default function Home() {
-
-  const { navToggle } = useNavContext()
 
   const header = useRef();
   
-  const container = useRef();
-
   useMouseEventListener(header);
 
-  useMobileNavTransition(container);
+  useMobileNavTransition(header);
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    innerWidth >= 1024 ? container.current.style.overflow = 'hidden' : container.current.style.overflowY = 'auto';
+  //   innerWidth >= 1024 ? container.current.style.overflow = 'hidden' : container.current.style.overflowY = 'auto';
 
-  });
+  // });
 
   return (
 
@@ -44,14 +38,10 @@ export default function Home() {
 
         <Navigation />
 
-        <div ref={container} className={'container'}>
+        <Canvas />
 
-          <Canvas />
+        <Cursor />
 
-          <Cursor />
-
-
-          {/* Header section */}
           <header ref={header} className={'flex' + " " + styles['header']}>
 
             <div className={'flex' + " " + styles['header-flex-container']}>
@@ -70,8 +60,6 @@ export default function Home() {
 
             </div>
 
-            {/* <button className={styles['button']}>About me</button> */}
-
           </header>
 
         {/* Footer section */}
@@ -84,8 +72,6 @@ export default function Home() {
           <div className={styles['footer-line']}></div>
 
         </footer> */}
-
-      </div>
 
     </>
 

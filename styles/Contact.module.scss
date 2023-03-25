@@ -5,8 +5,9 @@
     text-align: center;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 100svh;
     z-index: 9;
+    transition: translate 0.4s;
 }
 
 .contact-paragraph {

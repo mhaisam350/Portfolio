@@ -4,9 +4,9 @@
     margin: 0em auto;
     padding: 5em 0;
     max-width: 90%;
-    // height: 100vh;
-    // pointer-events: none;
+    // height: 100%;
     z-index: 9;
+    transition: translate 0.4s;
 }
 
 .about-flex-container {
@@ -59,7 +59,7 @@
     .about {
         padding: 0em 2em;
         max-width: 1300px;
-        height: 100vh;
+        height: 100svh;
         justify-content: center;
         align-items: center;
     }

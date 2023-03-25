@@ -4,11 +4,11 @@ const NavContext = createContext();
 
 export const NavContextProvider = ({ children }) => {
 
-    const [navToggle, setNavtoggle] = useState(false);
+    const [navToggle, setNavToggle] = useState(false);
 
     return (
 
-        <NavContext.Provider value={ { navToggle, setNavtoggle } }>
+        <NavContext.Provider value={ { navToggle, setNavToggle } }>
             { children }
         </NavContext.Provider>
 

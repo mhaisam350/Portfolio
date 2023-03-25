@@ -1,7 +1,6 @@
 import { useRef } from 'react';
 
 import Head from 'next/head';
-import Link from 'next/link';
 
 import styles from '@/styles/Projects.module.scss';
 
@@ -13,16 +12,17 @@ import Cursor from '@/components/Cursor';
 
 import useMouseEventListener from '@/hooks/useMouseEventListener';
 import useMobileNavTransition from '@/hooks/useMobileNavTransition';
+import useScrollDisabler from '@/hooks/useScrollDisabler';
 
 import data from '@/data/projects.json';
 
 export default function Projects() {
 
     const projectsSection = useRef();
-    const container = useRef();
 
     useMouseEventListener(projectsSection);
-    useMobileNavTransition(container);
+    useMobileNavTransition(projectsSection);
+    // useScrollDisabler(container);
 
     const { projects } = data;
 
@@ -38,37 +38,33 @@ export default function Projects() {
 
             <Navigation />
 
-            <div ref={container} className={'container'}>
+            <Canvas />
 
-                <Canvas />
+            <Cursor />
 
-                <Cursor />
+            <section ref={projectsSection} className={'flex' + " " + styles['projects']}>
 
-                <section ref={projectsSection} className={'flex' + " " + styles['projects']}>
+                <div>
 
-                    <div>
+                    <h2 className={'section-heading'}>Projects</h2>
 
-                        <h2 className={'section-heading'}>Projects</h2>
+                    <div className={'grid' + " " + styles['projects-grid']}>
 
-                        <div className={'grid' + " " + styles['projects-grid']}>
+                        {
 
-                            {
-
-                                projects.map((project, index) => (
+                            projects.map((project, index) => (
 
                                 <ProjectDisplay key={index} project={project} />
 
-                                ))
+                            ))
 
-                            }
-
-                        </div>
+                        }
 
                     </div>
 
-                </section>
+                </div>
 
-            </div>
+            </section>
 
         </>
 

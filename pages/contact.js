@@ -7,6 +7,7 @@ import styles from '@/styles/Contact.module.scss';
 
 import useMouseEventListener from '@/hooks/useMouseEventListener';
 import useMobileNavTransition from '@/hooks/useMobileNavTransition';
+import useScrollDisabler from '@/hooks/useScrollDisabler';
 
 import Navigation from '@/components/Navigation';
 import Canvas from '@/components/Canvas';
@@ -19,10 +20,10 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 export default function Contact() {
 
     const contact = useRef();
-    const container = useRef();
 
     useMouseEventListener(contact);
-    useMobileNavTransition(container);
+    useMobileNavTransition(contact);
+    // useScrollDisabler(container);
 
     return (
 
@@ -36,47 +37,43 @@ export default function Contact() {
 
             <Navigation />
 
-            <div ref={container} className={'container'}>
+            <Canvas />
 
-                <Canvas />
+            <Cursor />
 
-                <Cursor />
+            <section ref={contact} className={'flex' + " " + styles['contact']}>
 
-                <section ref={contact} className={'flex' + " " + styles['contact']}>
+                <div>
 
-                    <div>
+                    <h2 className={'section-heading'}>Contact</h2>
 
-                        <h2 className={'section-heading'}>Contact</h2>
+                    <p className={styles['contact-paragraph']}>Whether you have a question, feedback, or want to work together, I'd love to hear from you! </p>
 
-                        <p className={styles['contact-paragraph']}>Whether you have a question, feedback, or want to work together, I'd love to hear from you! </p>
+                    <section className={styles['contact-icons']}>
 
-                        <section className={styles['contact-icons']}>
+                        <Link href='/' className={styles['contact-link']}>
 
-                                <Link href='/' className={styles['contact-link']}>
-
-                                    <FontAwesomeIcon className={styles['contact-icon']} icon={faEnvelope} />
+                            <FontAwesomeIcon className={styles['contact-icon']} icon={faEnvelope} />
                                     
-                                </Link>
+                        </Link>
 
-                                <Link href='/' className={styles['contact-link']}>
+                         <Link href='/' className={styles['contact-link']}>
                                     
-                                    <FontAwesomeIcon className={styles['contact-icon']} icon={faGithub} />
+                            <FontAwesomeIcon className={styles['contact-icon']} icon={faGithub} />
 
-                                </Link>
+                        </Link>
 
-                                <Link href='/' className={styles['contact-link']}>
+                        <Link href='/' className={styles['contact-link']}>
 
-                                    <FontAwesomeIcon className={styles['contact-icon']} icon={faLinkedin} />
+                            <FontAwesomeIcon className={styles['contact-icon']} icon={faLinkedin} />
 
-                                </Link>
+                        </Link>
 
-                        </section>
+                    </section>
 
-                    </div>
+                </div>
 
-                </section>
-
-            </div>
+            </section>
 
         </>
 

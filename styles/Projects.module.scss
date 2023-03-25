@@ -5,11 +5,11 @@
     align-items: center;
     margin: 0 auto;
     max-width: 90%;
+    transition: translate 0.4s;
 }
 
 .projects-grid {
     grid-template-columns: 1fr;
-    // text-align: center;
     gap: 4em;
 }
 
@@ -17,17 +17,15 @@
 
     .projects {
         padding: 0 2em;
-        z-index: 9;
         justify-content: center;
         align-items: center;
-        height: 100svh;
         max-width: 1300px;
+        height: 100svh;
     }
 
     .projects-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 2em;
-        // text-align: left;
     }
 
 }

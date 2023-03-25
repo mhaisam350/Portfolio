@@ -12,14 +12,15 @@ import Cursor from '@/components/Cursor';
 
 import useMouseEventListener from '@/hooks/useMouseEventListener';
 import useMobileNavTransition from '@/hooks/useMobileNavTransition';
+import useScrollDisabler from '@/hooks/useScrollDisabler';
 
 export default function About() {
 
     const about = useRef();
-    const container = useRef();
 
     useMouseEventListener(about);
-    useMobileNavTransition(container);
+    useMobileNavTransition(about);
+    // useScrollDisabler(about);
 
     return (
 
@@ -32,78 +33,74 @@ export default function About() {
             </Head>
 
             <Navigation />
-
-            <div ref={container} className={'container'}>
         
-                <Canvas />
+            <Canvas />
                 
-                <Cursor />
+            <Cursor />
 
-                <section ref={about} className={'flex' + " " + styles['about']}>
+            <section ref={about} className={'flex' + " " + styles['about']}>
 
-                    <div>
+                  <div>
 
-                        <h2 className='section-heading'>About Me</h2>
+                    <h2 className='section-heading'>About Me</h2>
 
-                        <div className={'flex' + " " + styles['about-flex-container']}>
+                    <div className={'flex' + " " + styles['about-flex-container']}>
 
-                            <section className={styles['about-text']}>
+                        <section className={styles['about-text']}>
 
-                                <p className={styles['about-paragraph']}>
+                            <p className={styles['about-paragraph']}>
                                 I'm a front-end web developer based in Pakistan with one year of freelance experience building web pages and applications.
-                                </p>
+                            </p>
 
-                                <p className={styles['about-paragraph']}>
+                            <p className={styles['about-paragraph']}>
                                 While my primary strength and focus is web development, my programming journey began as a self-learner dabbling in C# while working 
                                 on a prototype for a video game on Unity Engine. This eventually led me to pick up Javascript and Python, 
                                 and shifted my attention to web development. 
                                 The never-ending excitement of continually improving and expanding my skill 
                                 set is what has driven my passion for software development.
-                                </p>
+                            </p>
 
-                                <p className={styles['about-paragraph']}>
+                            <p className={styles['about-paragraph']}>
                                 These days I primarily work with React, and I'm always looking for oppurtunities to further develop my career.
-                                </p>
+                            </p>
 
-                            </section>
+                        </section>
 
-                            <section className={styles['about-skills']}>
+                        <section className={styles['about-skills']}>
 
-                                <h3 className={styles['skills-heading']}>My Skills:</h3>
+                            <h3 className={styles['skills-heading']}>My Skills:</h3>
 
-                                <ul className={'flex' + " " + styles['skills-list']}>
+                            <ul className={'flex' + " " + styles['skills-list']}>
                                 
-                                    <SkillTab text={'HTML'} />
+                            <SkillTab text={'HTML'} />
 
-                                    <SkillTab text={'CSS/SCSS'} />
+                                <SkillTab text={'CSS/SCSS'} />
 
-                                    <SkillTab text={'Javascript'} />
+                                <SkillTab text={'Javascript'} />
 
-                                    <SkillTab text={'Typescript'} />
+                                <SkillTab text={'Typescript'} />
 
-                                </ul>
+                            </ul>
 
-                                <ul className={'flex' + " " + styles['skills-list']}>
+                            <ul className={'flex' + " " + styles['skills-list']}>
                                 
-                                    <SkillTab text={'ReactJS'} />
+                                <SkillTab text={'ReactJS'} />
 
-                                    <SkillTab text={'NextJS'} />
+                                <SkillTab text={'NextJS'} />
 
-                                    <SkillTab text={'NodeJS'} />
+                                <SkillTab text={'NodeJS'} />
 
-                                    <SkillTab text={'Git'} />
+                                <SkillTab text={'Git'} />
 
-                                </ul>
+                            </ul>
 
-                            </section>
-
-                        </div>
+                        </section>
 
                     </div>
 
-                </section>
-            
-            </div>
+                </div>
+
+            </section>
 
         </>
 
