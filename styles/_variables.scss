@@ -9,79 +9,9 @@ $light: #EFF0F3;
 $dark: #0F0E17;
 $accent: #FF8906;
 
-// Map of themes
-// $themes: (
-
-//     light: (
-
-//         page-bg: $light,
-//         page-text: $dark,
-//         lines: $dark,
-//         button-bg: $accent,
-//         button-shadow: $dark,
-
-//     ),
-
-//     dark: (
-
-//         page-bg: $dark,
-//         page-text: $light,
-//         lines: $light,
-//         button-bg: transparent,
-//         button-shadow: $accent,
-
-//     )
-
-// );
-
-// Generate map of styles for each theme
-// @mixin themeGenerator($themes) {
-
-//     @each $theme, $styles in $themes {
-
-//         .theme-#{$theme} & {
-
-//             $theme-map: () !global;
-
-//             @each $property, $style in $styles {
-
-//                 $value: map-get(map-get($themes, $theme), $property);
-
-//                 $theme-map: map-merge($theme-map , ($property: $value) ) !global;
-
-//             };
-
-//             @content;
-//             $theme-map: null !global;
-
-//         };
-
-//     };
-
-// };
-
-// Retrieve style property base on current theme
-// @function getThemeStyle($property) {
-
-//     @return map-get($theme-map, $property);
-
-// };
-
-.section-heading {
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 2.5em;
-    padding-bottom: 0.5em;
-    line-height: 1.2;
-}
 
 // Button styles
 @mixin button {
-
-    // @include themeGenerator($themes) {
-    //     background: getThemeStyle('button-bg');
-    // }
-
     background: transparent;
     font-size: 1.1em;
     color: $light;
@@ -107,7 +37,6 @@ $accent: #FF8906;
         width: 100%;
         height: 100%;
         opacity: 0.5;
-        // cursor: default;
         transition: 0.15s ease;
         
         transform: perspective(1em) rotateX(30deg) scale(1, 0.3);

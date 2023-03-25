@@ -11,9 +11,13 @@ export default function Cursor() {
         
         const mouseMoveListener = (e) => {
 
-            cursorInner.current.setAttribute('style',
-                `translate: ${e.clientX - 5}px ${innerHeight - e.clientY <= 34 ? innerHeight - 39 : e.clientY - 5}px 0;`
-            );
+            if (cursorInner.current) {
+
+                cursorInner.current.setAttribute('style',
+                    `translate: ${e.clientX - 5}px ${innerHeight - e.clientY <= 34 ? innerHeight - 39 : e.clientY - 5}px 0;`
+                );
+
+            };
 
             setTimeout(() => {
 
@@ -33,9 +37,13 @@ export default function Cursor() {
 
         const mouseDownListener = (e) => {
 
-            cursorOuter.current.setAttribute('style',
-                `translate: ${(e.clientX - 31)}px ${innerHeight - e.clientY <= 34 ? innerHeight - 65 : e.clientY - 31}px 0; scale: 0.8;`
-            );
+            if (cursorOuter.current) {
+
+                cursorOuter.current.setAttribute('style',
+                    `translate: ${(e.clientX - 31)}px ${innerHeight - e.clientY <= 34 ? innerHeight - 65 : e.clientY - 31}px 0; scale: 0.8;`
+                );
+
+            };
 
         };
 
