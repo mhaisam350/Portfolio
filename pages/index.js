@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useMemo } from 'react';
 
 import Head from 'next/head';
 
@@ -13,6 +13,8 @@ import useMouseEventListener from '@/hooks/useMouseEventListener';
 import useMobileNavTransition from '@/hooks/useMobileNavTransition';
 
 export default function Home() {
+
+  const canvas = useMemo( () => <Canvas />, []);
 
   const header = useRef();
   
@@ -38,7 +40,9 @@ export default function Home() {
 
         <Navigation />
 
-        <Canvas />
+        {/* <Canvas /> */}
+
+        {canvas}
 
         <Cursor />
 

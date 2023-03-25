@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useMemo } from 'react';
 
 import Head from 'next/head';
 
@@ -15,6 +15,8 @@ import useMobileNavTransition from '@/hooks/useMobileNavTransition';
 import useScrollDisabler from '@/hooks/useScrollDisabler';
 
 export default function About() {
+
+    const canvas = useMemo( () => <Canvas />, []);
 
     const about = useRef();
 
@@ -34,7 +36,9 @@ export default function About() {
 
             <Navigation />
         
-            <Canvas />
+            {/* <Canvas /> */}
+
+            {canvas}
                 
             <Cursor />
 

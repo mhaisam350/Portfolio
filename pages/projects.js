@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useMemo } from 'react';
 
 import Head from 'next/head';
 
@@ -17,6 +17,8 @@ import useScrollDisabler from '@/hooks/useScrollDisabler';
 import data from '@/data/projects.json';
 
 export default function Projects() {
+
+    const canvas = useMemo( () => <Canvas />, []);
 
     const projectsSection = useRef();
 
@@ -38,7 +40,9 @@ export default function Projects() {
 
             <Navigation />
 
-            <Canvas />
+            {/* <Canvas /> */}
+
+            {canvas}
 
             <Cursor />
 

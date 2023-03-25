@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useMemo } from 'react';
 
 import Head from 'next/head';
 import Link from 'next/link';
@@ -18,6 +18,8 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 export default function Contact() {
+
+    const canvas = useMemo( () => <Canvas />, []);
 
     const contact = useRef();
 
@@ -39,7 +41,9 @@ export default function Contact() {
 
             <Canvas />
 
-            <Cursor />
+            {/* <Cursor /> */}
+
+            {canvas}
 
             <section ref={contact} className={'flex' + " " + styles['contact']}>
 
