@@ -38,7 +38,7 @@ export default function About() {
         
             {/* <Canvas /> */}
 
-            {canvas}
+            {/* {canvas} */}
                 
             <Cursor />
 

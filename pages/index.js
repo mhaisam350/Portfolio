@@ -42,7 +42,7 @@ export default function Home() {
 
         {/* <Canvas /> */}
 
-        {canvas}
+        {/* {canvas} */}
 
         <Cursor />
 

@@ -68,7 +68,7 @@ export default function Canvas() {
 
             particleArray = [];
 
-            for (let i = 0; i < 100; i++) {
+            for (let i = 0; i < 1; i++) {
 
                 let size = Math.random() * 1;
                 let x = Math.random() * (innerWidth - size * 2);

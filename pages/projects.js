@@ -42,7 +42,7 @@ export default function Projects() {
 
             {/* <Canvas /> */}
 
-            {canvas}
+            {/* {canvas} */}
 
             <Cursor />
 

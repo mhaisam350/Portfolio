@@ -10,6 +10,7 @@ import useMobileNavTransition from '@/hooks/useMobileNavTransition';
 import useScrollDisabler from '@/hooks/useScrollDisabler';
 
 import Navigation from '@/components/Navigation';
+
 import Canvas from '@/components/Canvas';
 import Cursor from '@/components/Cursor';
 
@@ -39,11 +40,11 @@ export default function Contact() {
 
             <Navigation />
 
-            <Canvas />
+            {/* <Canvas /> */}
 
-            {/* <Cursor /> */}
+            <Cursor />
 
-            {canvas}
+            {/* {canvas} */}
 
             <section ref={contact} className={'flex' + " " + styles['contact']}>
 
