@@ -9,6 +9,7 @@
     position: fixed;
     pointer-events: none;
     z-index: 9999;
+    transition: opacity 0.2s;
 }
 
 .cursor-outer {
