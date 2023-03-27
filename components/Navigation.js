@@ -28,6 +28,10 @@ export default function Navigation() {
                 <menu className={'flex' + " " + styles['nav-menu'] + " " + navToggleClass}>
 
                     <li onClick={() => setNavToggle(false)} onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} className={styles['menu-item']}>
+                        <Link href='/' className={styles['menu-link']}>Home</Link>
+                    </li>
+
+                    <li onClick={() => setNavToggle(false)} onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} className={styles['menu-item']}>
                         <Link href='/about' className={styles['menu-link']}>About</Link>
                     </li>
 
