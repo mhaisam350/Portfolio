@@ -14,24 +14,26 @@ export default function Cursor() {
             if (cursorInner.current) {
 
                 cursorInner.current.setAttribute('style',
-                    `translate: ${e.clientX - 5}px ${innerHeight - e.clientY <= 34 ? innerHeight - 39 : e.clientY - 5}px 0;`
+                    `translate: ${e.clientX - 5}px ${e.clientY - 5}px 0;`
                 );
 
             };
 
-            setTimeout(() => {
+            const timeout = setTimeout(() => {
 
                 if (cursorOuter.current) {
 
                     cursorOuter.current.setAttribute('style',
-                        `translate: ${(e.clientX - 31)}px ${innerHeight - e.clientY <= 34 ? innerHeight - 65 : e.clientY - 31}px 0;`
+                        `translate: ${(e.clientX - 31)}px ${e.clientY - 31}px 0;`
                     );
 
                 };
 
             }, 50);
 
-            // console.log(e.target.tagName);
+            return () => {
+                clearTimeout(timeout);
+            }
 
         };
 
