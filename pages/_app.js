@@ -5,6 +5,7 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 config.autoAddCss = false;
 
 import { NavContextProvider } from '@/contexts/NavContext';
+import { HoverContextProvider } from '@/contexts/HoverContext';
 
 export default function App({ Component, pageProps }) {
 
@@ -12,7 +13,11 @@ export default function App({ Component, pageProps }) {
 
     <NavContextProvider>
 
-      <Component {...pageProps} />
+      <HoverContextProvider>
+
+        <Component {...pageProps} />
+
+      </HoverContextProvider>
 
     </NavContextProvider>
 

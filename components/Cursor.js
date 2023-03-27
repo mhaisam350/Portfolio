@@ -2,7 +2,11 @@ import { useEffect, useRef } from 'react';
 
 import styles from '@/styles/Cursor.module.scss';
 
+import { useHoverContext } from '@/contexts/HoverContext';
+
 export default function Cursor() {
+
+    const { hover } = useHoverContext();
 
     const cursorInner = useRef();
     const cursorOuter = useRef();
@@ -14,7 +18,7 @@ export default function Cursor() {
             if (cursorInner.current) {
 
                 cursorInner.current.setAttribute('style',
-                    `translate: ${e.clientX - 5}px ${e.clientY - 5}px 0;`
+                    `translate: ${e.clientX - 5}px ${e.clientY - 5}px 0; opacity: ${hover ? '0' : '1'}`
                 );
 
             };
@@ -24,7 +28,7 @@ export default function Cursor() {
                 if (cursorOuter.current) {
 
                     cursorOuter.current.setAttribute('style',
-                        `translate: ${(e.clientX - 31)}px ${e.clientY - 31}px 0;`
+                        `translate: ${(e.clientX - 31)}px ${e.clientY - 31}px 0; scale: ${hover ? '1.3' : '1'};`
                     );
 
                 };

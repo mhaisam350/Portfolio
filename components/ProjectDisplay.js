@@ -2,13 +2,15 @@ import Link from 'next/link';
 
 import styles from '@/styles/ProjectDisplay.module.scss';
 
+import { useHoverContext } from '@/contexts/HoverContext';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 export default function ProjectDisplay( { project } ) {
 
-    // console.log(project);
+    const { setHover } = useHoverContext();
 
     return (
 
@@ -24,17 +26,15 @@ export default function ProjectDisplay( { project } ) {
 
                     <div className={styles['project-links']}>
 
-                        <Link className={styles.link} href={project.live} target='_blank'><FontAwesomeIcon icon={faArrowUpRightFromSquare} /></Link>
+                        <Link onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} className={styles.link} href={project.live} target='_blank'><FontAwesomeIcon icon={faArrowUpRightFromSquare} /></Link>
                             
-                        <Link className={styles.link} href={project.github} target='_blank'><FontAwesomeIcon icon={faGithub} /></Link>
+                        <Link onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} className={styles.link} href={project.github} target='_blank'><FontAwesomeIcon icon={faGithub} /></Link>
 
                     </div>
                 
                 </div>
 
                 <p className={styles['project-paragraph']}>{project.description}</p>
-
-                
 
             </div>
 

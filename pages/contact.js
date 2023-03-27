@@ -9,8 +9,9 @@ import useMouseEventListener from '@/hooks/useMouseEventListener';
 import useMobileNavTransition from '@/hooks/useMobileNavTransition';
 import useScrollDisabler from '@/hooks/useScrollDisabler';
 
-import Navigation from '@/components/Navigation';
+import { useHoverContext } from '@/contexts/HoverContext';
 
+import Navigation from '@/components/Navigation';
 import Canvas from '@/components/Canvas';
 import Cursor from '@/components/Cursor';
 
@@ -19,6 +20,8 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 export default function Contact() {
+
+    const { setHover } = useHoverContext();
 
     const canvas = useMemo( () => <Canvas />, []);
 
@@ -56,19 +59,19 @@ export default function Contact() {
 
                     <section className={styles['contact-icons']}>
 
-                        <Link href='/' className={styles['contact-link']}>
+                        <Link onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} href='/' className={styles['contact-link']}>
 
                             <FontAwesomeIcon className={styles['contact-icon']} icon={faEnvelope} />
                                     
                         </Link>
 
-                         <Link href='/' className={styles['contact-link']}>
+                         <Link onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} href='/' className={styles['contact-link']}>
                                     
                             <FontAwesomeIcon className={styles['contact-icon']} icon={faGithub} />
 
                         </Link>
 
-                        <Link href='/' className={styles['contact-link']}>
+                        <Link onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} href='/' className={styles['contact-link']}>
 
                             <FontAwesomeIcon className={styles['contact-icon']} icon={faLinkedin} />
 
