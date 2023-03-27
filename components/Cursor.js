@@ -42,7 +42,7 @@ export default function Cursor() {
             if (cursorOuter.current) {
 
                 cursorOuter.current.setAttribute('style',
-                    `translate: ${(e.clientX - 31)}px ${innerHeight - e.clientY <= 34 ? innerHeight - 65 : e.clientY - 31}px 0; scale: 0.8;`
+                    `translate: ${(e.clientX - 31)}px ${e.clientY - 31}px 0; scale: 0.8;`
                 );
 
             };
@@ -52,7 +52,7 @@ export default function Cursor() {
         const mouseUpListener = (e) => {
 
             cursorOuter.current.setAttribute('style',
-                `translate: ${(e.clientX - 31)}px ${innerHeight - e.clientY <= 34 ? innerHeight - 65 : e.clientY - 31}px 0;`
+                `translate: ${(e.clientX - 31)}px ${e.clientY - 31}px 0;`
             );
 
         };
