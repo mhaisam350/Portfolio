@@ -11,7 +11,7 @@ export default function useMouseEventListener(ref) {
 
           if (ref.current) {
 
-            ref.current.style.transform = `translate(${-mouseX/100}px, ${-mouseY/500}px)`;
+            ref.current.style.transform = `translate(${-mouseX/100}px`;
 
           };
     
