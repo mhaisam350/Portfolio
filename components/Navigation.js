@@ -21,9 +21,9 @@ export default function Navigation() {
 
             <div className={'flex' + " " + styles['nav-subcontainer']}>
 
-                <span >
+                {/* <span >
                     <Link onClick={() => setNavToggle(false)} onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} href='/'><img className={styles.logo} src={'/static/images/EMotors.png'} alt='Logo' /> </Link>
-                </span>
+                </span> */}
 
                 <menu className={'flex' + " " + styles['nav-menu'] + " " + navToggleClass}>
 

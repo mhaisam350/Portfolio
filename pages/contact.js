@@ -59,19 +59,19 @@ export default function Contact() {
 
                     <section className={styles['contact-icons']}>
 
-                        <Link onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} href='/' className={styles['contact-link']}>
+                        <Link onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} href='mailto:mhaisam350@gmail.com' className={styles['contact-link']}>
 
                             <FontAwesomeIcon className={styles['contact-icon']} icon={faEnvelope} />
                                     
                         </Link>
 
-                         <Link onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} href='/' className={styles['contact-link']}>
+                         <Link onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} href='https://github.com/mhaisam350' target='_blank' className={styles['contact-link']}>
                                     
                             <FontAwesomeIcon className={styles['contact-icon']} icon={faGithub} />
 
                         </Link>
 
-                        <Link onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} href='/' className={styles['contact-link']}>
+                        <Link onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} href='https://www.linkedin.com/in/mohammad-haisam/' target='_blank' className={styles['contact-link']}>
 
                             <FontAwesomeIcon className={styles['contact-icon']} icon={faLinkedin} />
 

@@ -67,7 +67,7 @@
 @media (max-width: 1024px) {
 
     .nav-subcontainer {
-        justify-content: space-between;
+        justify-content: flex-end;
         font-size: 0.9em;
     }
 
@@ -127,6 +127,7 @@
     }
     #bar2 {
         width: 0;
+        transition: 0.2s ease-in-out;
     }
     #bar3 {
         transition: all 100ms ease-in-out;
