@@ -33,7 +33,7 @@ export default function Projects() {
         <>
         
             <Head>
-                <title>Haisam | Projects</title>
+                <title>Projects | Haisam</title>
                 <meta name="description" content="Front End React Developer" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>

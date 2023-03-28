@@ -29,7 +29,7 @@ export default function About() {
         <>
 
             <Head>
-                <title>Haisam | About</title>
+                <title>About | Haisam</title>
                 <meta name="description" content="Front End React Developer" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>

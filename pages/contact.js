@@ -36,7 +36,7 @@ export default function Contact() {
         <>
         
             <Head>
-                <title>Haisam | Contact</title>
+                <title>Contact | Haisam</title>
                 <meta name="description" content="Front End React Developer" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
