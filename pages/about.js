@@ -82,7 +82,7 @@ export default function About() {
 
                                 <SkillTab text={'Javascript'} />
 
-                                <SkillTab text={'Typescript'} />
+                                <SkillTab text={'GraphQL'} />
 
                             </ul>
 
