@@ -14,7 +14,7 @@ import useMobileNavTransition from '@/hooks/useMobileNavTransition';
 
 export default function Home() {
 
-  const canvas = useMemo( () => <Canvas />, []);
+  // const canvas = useMemo( () => <Canvas />, []);
   const header = useRef();
   
   useMouseEventListener(header);
@@ -75,14 +75,6 @@ export default function Home() {
                 <span className={styles['spinner'] + " " + spinnerSide2}>UI Designer</span>
 
               </h2>
-              
-              {/* <div className={'flex' + " " + styles['subheading-container']}>
-
-                <div className={styles['header-divider']}></div>
-
-                <h2 className={styles['header-subheading']}>Front End <br /> ReactJS <br /> Developer </h2>
-
-              </div> */}
 
             </div>
 
