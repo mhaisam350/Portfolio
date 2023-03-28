@@ -12,6 +12,7 @@
 
 .contact-paragraph {
     margin-bottom: 2em;
+    font-size: 1.5em;
     line-height: $line-height;
 }
 
@@ -31,4 +32,12 @@
     &:hover {  
         color: $light;
     }
+}
+
+@media (max-width: 800px) {
+
+    .contact-paragraph {
+        font-size: 1em;
+    }
+
 }
