@@ -69,8 +69,6 @@ export default function Home() {
 
               </h1>
 
-              
-
               <h2 className={styles['header-subheading']}>
 
                 <span className={styles['spinner'] + " " + spinnerSide1}>Front-end Developer</span>
