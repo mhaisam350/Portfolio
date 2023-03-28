@@ -31,9 +31,10 @@ body {
   	font-family: 'Poppins', sans-serif;
 	line-height: 1;
 	overflow-x: hidden;
-	// background-color: #000;
-    background-image: radial-gradient(#021027, #000000);
+	background-color: #111;;
+    // background-image: radial-gradient(#380909, #000000);
 	color: $light;
+	position: relative;
 }
 ol, ul, menu {
 	list-style: none;

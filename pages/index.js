@@ -1,4 +1,4 @@
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, useEffect, useState } from 'react';
 
 import Head from 'next/head';
 
@@ -15,18 +15,31 @@ import useMobileNavTransition from '@/hooks/useMobileNavTransition';
 export default function Home() {
 
   const canvas = useMemo( () => <Canvas />, []);
-
   const header = useRef();
   
   useMouseEventListener(header);
-
   useMobileNavTransition(header);
 
-  // useEffect(() => {
+  const [bool, setBool] = useState(false);
 
-  //   innerWidth >= 1024 ? container.current.style.overflow = 'hidden' : container.current.style.overflowY = 'auto';
+  const spinnerSide1 = bool ? styles['spinner-up'] : styles['spinner-neutral']
+  const spinnerSide2 = !bool ? styles['spinner-down'] : styles['spinner-neutral']
 
-  // });
+  useEffect(() => {
+
+      const interval1 = setInterval(() => {
+
+        setBool(!bool);
+
+      }, 2500);
+  
+      return () => {
+
+        clearInterval(interval1);
+
+      };
+
+  });
 
   return (
 
@@ -51,31 +64,31 @@ export default function Home() {
             <div className={'flex' + " " + styles['header-flex-container']}>
 
               <h1 className={styles['header-heading']}>
+
                 Hello! <br /> I'm <span className={styles['accent-text']}>Haisam</span>.
+
               </h1>
+
               
-              <div className={'flex' + " " + styles['subheading-container']}>
+
+              <h2 className={styles['header-subheading']}>
+
+                <span className={styles['spinner'] + " " + spinnerSide1}>Front-end Developer</span>
+                <span className={styles['spinner'] + " " + spinnerSide2}>UI Designer</span>
+
+              </h2>
+              
+              {/* <div className={'flex' + " " + styles['subheading-container']}>
 
                 <div className={styles['header-divider']}></div>
 
                 <h2 className={styles['header-subheading']}>Front End <br /> ReactJS <br /> Developer </h2>
 
-              </div>
+              </div> */}
 
             </div>
 
           </header>
-
-        {/* Footer section */}
-        {/* <footer className={styles.footer + " " + 'flex'}>
-                              
-          <FontAwesomeIcon className={styles['footer-icon']} icon={faGithub} />
-
-          <FontAwesomeIcon className={styles['footer-icon']} icon={faLinkedin} />
-
-          <div className={styles['footer-line']}></div>
-
-        </footer> */}
 
     </>
 
