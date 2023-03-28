@@ -45,7 +45,13 @@ export default function Navigation() {
 
                 </menu>
                     
-                <button onClick={() => setNavToggle(!navToggle)} className={styles['mobile-toggle']}>III</button>
+                <button onClick={() => setNavToggle(!navToggle)} className={styles['mobile-toggle']}>
+                    
+                    <span className={styles['bar']} id={navToggle ? styles['bar1'] : ''}></span>
+                    <span className={styles['bar']} id={navToggle ? styles['bar2'] : ''}></span>
+                    <span className={styles['bar']} id={navToggle ? styles['bar3'] : ''}></span>
+
+                </button>
 
             </div>
 
