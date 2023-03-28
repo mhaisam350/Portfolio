@@ -22,8 +22,8 @@ export default function Home() {
 
   const [bool, setBool] = useState(false);
 
-  const spinnerSide1 = bool ? styles['spinner-up'] : styles['spinner-neutral']
-  const spinnerSide2 = !bool ? styles['spinner-down'] : styles['spinner-neutral']
+  const spinnerSide1 = bool ? styles['spinner-up'] : styles['spinner-neutral'];
+  const spinnerSide2 = !bool ? styles['spinner-down'] : styles['spinner-neutral'];
 
   useEffect(() => {
 

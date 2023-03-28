@@ -29,23 +29,11 @@
     line-height: 1.2;
 }
 
-// .subheading-container {
-//     flex-direction: column;
-//     gap: 1.5em;
-// }
-
-// .header-divider {
-//     height: 3px;
-//     width: 70%;
-//     background-color: $light;
-// }
-
 .header-subheading {
     font-family: 'Lora', serif;
     font-size: 1.5em;
     line-height: 1.3;
     position: relative;
-    // border: 1px solid red;
     width: 100%;
     text-align: center;
 
@@ -98,17 +86,6 @@
     .header-heading {
         font-size: 7em;
     }
-
-    // .subheading-container {
-    //     flex-direction: row;
-    //     align-items: center;
-    //     gap: 1em;
-    // }
-
-    // .header-divider {
-    //     height: 300px;
-    //     width: 3px;
-    // }
 
     .header-subheading {
         font-size: 2.5em;
