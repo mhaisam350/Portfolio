@@ -1,3 +1,6 @@
+// import { useRouter } from 'next/router';
+// import { useState, useEffect } from 'react';
+
 import Head from 'next/head';
 
 import '@/styles/globals.scss';
@@ -8,6 +11,50 @@ config.autoAddCss = false;
 
 import { NavContextProvider } from '@/contexts/NavContext';
 import { HoverContextProvider } from '@/contexts/HoverContext';
+
+// function Loading() {
+
+//   const router = useRouter();
+
+//   const [loading, setLoading] = useState(false);
+
+//   useEffect(() => {
+
+//     const handleStart = (url) => (
+
+//       url !== router.asPath && setLoading(true)
+
+//     );
+
+//     const handleComplete = (url) => (
+
+//       url === router.asPath && setTimeout(() => {setLoading(false)}, 2000)
+
+//     )
+
+//     router.events.on('routeChangeStart', handleStart);
+//     router.events.on('routeChangeComplete', handleComplete);
+
+//     return () => {
+
+//       router.events.off('routeChangeStart', handleStart);
+//       router.events.off('routeChangeComplete', handleComplete);
+
+//     };
+
+//   });
+
+//   return loading && (
+
+//     <div>
+
+//         loading
+
+//     </div>
+
+//   )
+
+// }
 
 export default function App({ Component, pageProps }) {
 
@@ -32,12 +79,14 @@ export default function App({ Component, pageProps }) {
 
         <HoverContextProvider>
 
+          {/* <Loading /> */}
+
           <Component {...pageProps} />
 
         </HoverContextProvider>
 
       </NavContextProvider>
-      
+
     </>
 
   )
