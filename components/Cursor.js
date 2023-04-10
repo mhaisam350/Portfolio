@@ -3,13 +3,21 @@ import { useEffect, useRef } from 'react';
 import styles from '@/styles/Cursor.module.scss';
 
 import { useHoverContext } from '@/contexts/HoverContext';
+import { useMouseLeaveContext } from '@/contexts/MouseLeaveContext';
 
 export default function Cursor() {
 
     const { hover } = useHoverContext();
+    const { hide } = useMouseLeaveContext();
 
     const cursorInner = useRef();
     const cursorOuter = useRef();
+
+    useEffect(() => {
+
+        hide ? cursorInner.current.style.opacity = '0' : cursorInner.current.style.opacity = '1';
+
+    })
 
     useEffect(() => {
         
@@ -18,35 +26,43 @@ export default function Cursor() {
             if (cursorInner.current) {
 
                 cursorInner.current.setAttribute('style',
-                    `translate: ${e.clientX - 5}px ${e.clientY - 5}px 0; opacity: ${hover ? '0' : '1'}`
+                    `translate: ${e.clientX - 5}px ${e.clientY - 5}px 0; opacity: ${hover ? '0' : '1'}; display: block;`
                 );
 
             };
 
-            const timeout = setTimeout(() => {
+            if (cursorOuter.current) {
 
-                if (cursorOuter.current) {
+                cursorOuter.current.setAttribute('style',
+                    `translate: ${(e.clientX - 31)}px ${e.clientY - 31}px 0; opacity: ${hover ? '0.5' : '0'}; display: block;`
+                );
 
-                    cursorOuter.current.setAttribute('style',
-                        `translate: ${(e.clientX - 31)}px ${e.clientY - 31}px 0; scale: ${hover ? '1.3' : '1'};`
-                    );
-
-                };
-
-            }, 50);
-
-            return () => {
-                clearTimeout(timeout);
             }
+
+            // const timeout = setTimeout(() => {
+
+            //     if (cursorOuter.current) {
+
+            //         cursorOuter.current.setAttribute('style',
+            //             `translate: ${(e.clientX - 31)}px ${e.clientY - 31}px 0; scale: ${hover ? '1.3' : '1'};`
+            //         );
+
+            //     };
+
+            // }, 50);
+
+            // return () => {
+            //     clearTimeout(timeout);
+            // }
 
         };
 
         const mouseDownListener = (e) => {
 
-            if (cursorOuter.current) {
+            if (cursorInner.current && !hover) {
 
-                cursorOuter.current.setAttribute('style',
-                    `translate: ${(e.clientX - 31)}px ${e.clientY - 31}px 0; scale: 0.8;`
+                cursorInner.current.setAttribute('style',
+                    `translate: ${(e.clientX - 5)}px ${e.clientY - 5}px 0; scale: 0.5;`
                 );
 
             };
@@ -55,8 +71,8 @@ export default function Cursor() {
 
         const mouseUpListener = (e) => {
 
-            cursorOuter.current.setAttribute('style',
-                `translate: ${(e.clientX - 31)}px ${e.clientY - 31}px 0;`
+            cursorInner.current.setAttribute('style',
+                `translate: ${(e.clientX - 5)}px ${e.clientY - 5}px 0; opacity: ${hover ? '0' : '1'};`
             );
 
         };

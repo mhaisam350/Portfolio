@@ -11,6 +11,8 @@ import Canvas from '@/components/Canvas';
 import useMouseEventListener from '@/hooks/useMouseEventListener';
 import useMobileNavTransition from '@/hooks/useMobileNavTransition';
 
+import { useMouseLeaveContext } from '@/contexts/MouseLeaveContext';
+
 export default function Home() {
 
   // const canvas = useMemo( () => <Canvas />, []);
@@ -18,6 +20,8 @@ export default function Home() {
   
   useMouseEventListener(header);
   useMobileNavTransition(header);
+
+  const { setHide } = useMouseLeaveContext();
 
   const [bool, setBool] = useState(false);
 
@@ -43,7 +47,7 @@ export default function Home() {
 
   return (
 
-    <>
+    <div onMouseLeave={() => setHide(true)} onMouseEnter={() => setHide(false)}>
 
         <Head>
           <title>Haisam | Front End Developer</title>
@@ -76,7 +80,7 @@ export default function Home() {
 
           </header>
 
-    </>
+    </div>
 
   )
 

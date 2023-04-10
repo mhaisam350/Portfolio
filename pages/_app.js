@@ -10,18 +10,13 @@ config.autoAddCss = false;
 
 import { NavContextProvider } from '@/contexts/NavContext';
 import { HoverContextProvider } from '@/contexts/HoverContext';
+import { MouseLeaveContextProvider } from '@/contexts/MouseLeaveContext';
 
 export default function App({ Component, pageProps }) {
 
-  const handleMouseLeave = () => {
-
-    console.log('leave');
-
-  }
-
   return (
 
-    <div onMouseLeave={handleMouseLeave}>
+    <>
     
       <Head>
         
@@ -40,15 +35,19 @@ export default function App({ Component, pageProps }) {
 
         <HoverContextProvider>
 
-          <Cursor></Cursor> 
-          
-          <Component {...pageProps} />
+          <MouseLeaveContextProvider>
+
+            <Cursor></Cursor> 
+            
+            <Component {...pageProps} />
+
+          </MouseLeaveContextProvider>
 
         </HoverContextProvider>
 
       </NavContextProvider>
 
-    </div>
+    </>
 
   )
 
