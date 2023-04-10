@@ -7,7 +7,6 @@ import styles from '@/styles/Home.module.scss';
 import Navigation from '@/components/Navigation';
 
 import Canvas from '@/components/Canvas';
-import Cursor from '@/components/Cursor';
 
 import useMouseEventListener from '@/hooks/useMouseEventListener';
 import useMobileNavTransition from '@/hooks/useMobileNavTransition';
@@ -32,12 +31,6 @@ export default function Home() {
         setBool(!bool);
 
       }, 2000);
-
-      const mouseLeaveListener = () => {
-
-        console.log('leave');
-
-    }
   
       return () => {
 
@@ -60,11 +53,7 @@ export default function Home() {
 
         <Navigation />
 
-        {/* <Canvas /> */}
-
         {/* {canvas} */}
-
-        {/* <Cursor /> */}
 
           <header ref={header} className={'flex' + " " + styles['header']}>
 
