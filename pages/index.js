@@ -15,7 +15,6 @@ import useMobileNavTransition from '@/hooks/useMobileNavTransition';
 export default function Home() {
 
   // const canvas = useMemo( () => <Canvas />, []);
-  const container = useRef();
   const header = useRef();
   
   useMouseEventListener(header);
@@ -25,12 +24,6 @@ export default function Home() {
 
   const spinnerSide1 = bool ? styles['spinner-up'] : styles['spinner-neutral'];
   const spinnerSide2 = !bool ? styles['spinner-down'] : styles['spinner-neutral'];
-
-  const handleMouseLeave = () => {
-
-    console.log('leave');
-
-  }
 
   useEffect(() => {
 
@@ -57,7 +50,7 @@ export default function Home() {
 
   return (
 
-    <div onMouseLeave={handleMouseLeave} ref={container}>
+    <>
 
         <Head>
           <title>Haisam | Front End Developer</title>
@@ -94,7 +87,7 @@ export default function Home() {
 
           </header>
 
-    </div>
+    </>
 
   )
 

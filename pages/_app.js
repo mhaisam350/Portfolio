@@ -16,9 +16,15 @@ import { HoverContextProvider } from '@/contexts/HoverContext';
 
 export default function App({ Component, pageProps }) {
 
+  const handleMouseLeave = () => {
+
+    console.log('leave');
+
+  }
+
   return (
 
-    <>
+    <div onMouseLeave={handleMouseLeave}>
     
       <Head>
         
@@ -45,7 +51,7 @@ export default function App({ Component, pageProps }) {
 
       </NavContextProvider>
 
-    </>
+    </div>
 
   )
 
