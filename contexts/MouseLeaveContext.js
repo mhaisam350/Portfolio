@@ -4,11 +4,11 @@ const MouseLeaveContext = createContext();
 
 export const MouseLeaveContextProvider = ({ children }) => {
 
-    const [leave, setLeave] = useState(false);
+    const [hide, setHide] = useState(false);
 
     return (
 
-        <MouseLeaveContext.Provider value={ { leave, setLeave } }>
+        <MouseLeaveContext.Provider value={ { hide, setHide } }>
             { children }
         </MouseLeaveContext.Provider>
 
