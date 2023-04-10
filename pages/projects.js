@@ -44,7 +44,7 @@ export default function Projects() {
 
             {/* {canvas} */}
 
-            <Cursor />
+            {/* <Cursor /> */}
 
             <section ref={projectsSection} className={'flex' + " " + styles['projects']}>
 

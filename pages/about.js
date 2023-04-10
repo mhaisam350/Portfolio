@@ -40,7 +40,7 @@ export default function About() {
 
             {/* {canvas} */}
                 
-            <Cursor />
+            {/* <Cursor /> */}
 
             <section ref={about} className={'flex' + " " + styles['about']}>
 

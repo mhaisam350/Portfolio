@@ -45,7 +45,7 @@ export default function Contact() {
 
             {/* <Canvas /> */}
 
-            <Cursor />
+            {/* <Cursor /> */}
 
             {/* {canvas} */}
 
