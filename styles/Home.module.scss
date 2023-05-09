@@ -16,7 +16,7 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  position: sticky;
+  position: relative;
   z-index: -1;
   
   flex-direction: column;
@@ -358,6 +358,10 @@
 }
 
 @media (min-width: 1024px) {
+
+    .contact {
+      position: sticky;
+    }
 
     .spinner-text {
       font-size: 10em;
