@@ -40,7 +40,7 @@ export default function Canvas() {
 
             canvasContext.beginPath();
             canvasContext.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-            canvasContext.fillStyle = '#fff';
+            canvasContext.fillStyle = '#FF8906';
             canvasContext.fill();
 
         };
@@ -68,9 +68,9 @@ export default function Canvas() {
 
             particleArray = [];
 
-            for (let i = 0; i < 1; i++) {
+            for (let i = 0; i < 10; i++) {
 
-                let size = Math.random() * 1;
+                let size = Math.random() * 3.5;
                 let x = Math.random() * (innerWidth - size * 2);
                 let y = Math.random() * (innerHeight - size * 2);
                 let dX = (Math.random() * 0.2) - 0.1;
@@ -110,17 +110,17 @@ export default function Canvas() {
 
         };
 
-        window.addEventListener('resize', resizeListener);
-        window.addEventListener('mousemove', mouseMoveListener);
+        // window.addEventListener('resize', resizeListener);
+        // window.addEventListener('mousemove', mouseMoveListener);
 
         return () => {
 
-            window.removeEventListener('resize', resizeListener);
-            window.removeEventListener('mousemove', mouseMoveListener);
+            // window.removeEventListener('resize', resizeListener);
+            // window.removeEventListener('mousemove', mouseMoveListener);
 
         };
 
-    });
+    }, []);
 
     return (
 

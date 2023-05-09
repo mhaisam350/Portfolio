@@ -14,15 +14,18 @@ export default function ProjectDisplay( { project } ) {
 
     return (
 
-        <article className={['container']}>
+        <article className={styles['container']} style={{backgroundImage: `url(${project.image})`}}>
+        {/* <article className={styles['container']}> */}
                 
-            <img src={project.image} className={styles['project-image']} alt='Project screenshot' />
+            {/* <img src={project.image} className={styles['project-image']} alt='Project screenshot' /> */}
             
             <div className={styles['project-text']}>
 
-                <div className={'flex' + " " + styles['project-flex']}>
+                {/* <div className={'flex' + " " + styles['project-flex']}> */}
 
                     <h3 className={styles['project-heading']}>{project.title}</h3>
+
+                    <p className={styles['project-tech']}><span className={styles.tools}>Tools: </span>{project.tech}</p>
 
                     <div className={styles['project-links']}>
 
@@ -30,11 +33,11 @@ export default function ProjectDisplay( { project } ) {
                             
                         <Link onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} className={styles.link} href={project.github} target='_blank'><FontAwesomeIcon icon={faGithub} /></Link>
 
-                    </div>
+                    {/* </div> */}
                 
                 </div>
 
-                <p className={styles['project-paragraph']}>{project.description}</p>
+                {/* <p className={styles['project-paragraph']}>{project.description}</p> */}
 
             </div>
 

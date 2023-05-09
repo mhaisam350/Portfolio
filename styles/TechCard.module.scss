@@ -1,0 +1,66 @@
+@import './variables';
+
+.container {
+    position: absolute;
+    text-align: center;
+
+    padding: 2em 2em;
+    width: 100px;
+    background-color: rgba(49, 49, 49, 0.7);
+    border: 2px solid rgba(49, 49, 49, 0.7);
+    border-radius: 1em;
+
+    z-index: 9;
+
+    -webkit-touch-callout: none; /* Safari */
+    -webkit-user-select: none; /* Chrome */     
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; 
+
+    touch-action: none;
+}
+
+.text {
+    font-size: 1.2em;
+    // text-shadow: 4px 1px 50px rgba(255,137,6,1);
+    color: $accent;
+}
+
+.icon {
+    font-size: 0.9em;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: grey;
+    transition: 0.2s ease;
+    display: none;
+}
+
+.container:hover .icon{
+    color: $accent;
+    translate: 30px 0;
+    transform: rotate(90deg);
+}
+
+@media (min-width: 800px) {
+
+    .container {
+        padding: 5em 2em;
+        width: 160px;
+        backdrop-filter: blur(15px);
+        background-color: rgba(49, 49, 49, 0.2);
+        border: 2px solid rgba(49, 49, 49, 0.2);
+    }
+    
+    .text {
+        font-size: 2em;
+        text-shadow: 4px 1px 50px rgba(255,137,6,1);
+    }
+    
+    .icon {
+        font-size: 1.2em;
+        display: block;
+    }
+
+}

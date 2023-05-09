@@ -28,19 +28,19 @@ export default function Navigation() {
                 <menu className={'flex' + " " + styles['nav-menu'] + " " + navToggleClass}>
 
                     <li onClick={() => setNavToggle(false)} onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} className={styles['menu-item']}>
-                        <Link href='/' className={styles['menu-link']}>Home</Link>
+                        <Link href='#header' className={styles['menu-link']}>Home</Link>
                     </li>
 
                     <li onClick={() => setNavToggle(false)} onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} className={styles['menu-item']}>
-                        <Link href='/about' className={styles['menu-link']}>About</Link>
+                        <Link href='#about' className={styles['menu-link']}>About</Link>
                     </li>
 
                     <li onClick={() => setNavToggle(false)} onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} className={styles['menu-item']}>
-                        <Link href='/projects' className={styles['menu-link']}>Projects</Link>
+                        <Link href='#projects' className={styles['menu-link']}>Projects</Link>
                     </li>
 
                     <li onClick={() => setNavToggle(false)} onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} className={styles['menu-item']}>
-                        <Link href='/contact' className={styles['menu-link']}>Contact</Link>
+                        <Link href='#contact' className={styles['menu-link']}>Contact</Link>
                     </li>
 
                 </menu>

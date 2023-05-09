@@ -26,7 +26,7 @@ export default function Cursor() {
             if (cursorInner.current) {
 
                 cursorInner.current.setAttribute('style',
-                    `translate: ${e.clientX - 5}px ${e.clientY - 5}px 0; opacity: ${hover ? '0' : '1'}; display: block;`
+                    `translate: ${e.clientX - 5}px ${e.clientY - 5}px 0; opacity: ${hover ? '0' : '1'};`
                 );
 
             };
@@ -34,7 +34,7 @@ export default function Cursor() {
             if (cursorOuter.current) {
 
                 cursorOuter.current.setAttribute('style',
-                    `translate: ${(e.clientX - 31)}px ${e.clientY - 31}px 0; opacity: ${hover ? '0.5' : '0'}; display: block;`
+                    `translate: ${(e.clientX - 31)}px ${e.clientY - 31}px 0; opacity: ${hover ? '0.5' : '0'};`
                 );
 
             }

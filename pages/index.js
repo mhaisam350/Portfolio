@@ -1,53 +1,92 @@
 import { useRef, useMemo, useEffect, useState } from 'react';
 
 import Head from 'next/head';
+import Link from 'next/link';
 
 import styles from '@/styles/Home.module.scss';
 
 import Navigation from '@/components/Navigation';
-
 import Canvas from '@/components/Canvas';
+import TechCard from '@/components/techCard';
+import ProjectDisplay from '@/components/ProjectDisplay';
 
-import useMouseEventListener from '@/hooks/useMouseEventListener';
+import data from '@/data/projects.json';
+
+// import useMouseEventListener from '@/hooks/useMouseEventListener';
 import useMobileNavTransition from '@/hooks/useMobileNavTransition';
 
 import { useMouseLeaveContext } from '@/contexts/MouseLeaveContext';
+import { useHoverContext } from '@/contexts/HoverContext';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 export default function Home() {
 
-  // const canvas = useMemo( () => <Canvas />, []);
-  const header = useRef();
+  const { projects } = data;
+
+  const canvas = useMemo( () => <Canvas />, []);
   
-  useMouseEventListener(header);
-  useMobileNavTransition(header);
+  const container = useRef();
+  const header = useRef();
+  const techHeading = useRef();
+  
+  // useMouseEventListener(header);
+  useMobileNavTransition(container);
+
+  const [zIndex, setZIndex] = useState(9);
 
   const { setHide } = useMouseLeaveContext();
+  const { setHover } = useHoverContext();
 
-  const [bool, setBool] = useState(false);
-
-  const spinnerSide1 = bool ? styles['spinner-up'] : styles['spinner-neutral'];
-  const spinnerSide2 = !bool ? styles['spinner-down'] : styles['spinner-neutral'];
+  const spinnerTextArray = ['haisam', 'web developer', 'ui designer']
 
   useEffect(() => {
 
-      const interval1 = setInterval(() => {
+    const spinnerTextElements = document.querySelectorAll('.spinner-text');
 
-        setBool(!bool);
+    spinnerTextElements.forEach((element, i) => {
 
-      }, 2000);
-  
-      return () => {
+      element.addEventListener('animationiteration', ((e) => {
 
-        clearInterval(interval1);
+        e.target.innerText = spinnerTextArray[++i % spinnerTextArray.length];
 
-      };
+      }))
 
+    });
 
-  });
+  }, [])
+
+  useEffect(() => {
+
+    const scrollListener = (e) => {
+
+      header.current.setAttribute('style',
+        `translate: -${scrollY * 0.6}px 0`
+      );
+
+      techHeading.current.setAttribute('style',
+        `translate: 0 ${(scrollY) * 0.1}px;`
+      );
+
+    };
+
+    document.addEventListener('scroll', scrollListener);
+
+        return () => {
+
+            document.removeEventListener('scroll', scrollListener);
+
+        };
+
+    });
 
   return (
 
     <div onMouseLeave={() => setHide(true)} onMouseEnter={() => setHide(false)}>
+
+      {/* <div> */}
 
         <Head>
           <title>Haisam | Front End Developer</title>
@@ -55,30 +94,122 @@ export default function Home() {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
 
-        <Navigation />
+        {/* <Navigation /> */}
 
-        {/* {canvas} */}
+        <div ref={container} className={styles.container}>
 
-          <header ref={header} className={'flex' + " " + styles['header']}>
+          <header className={styles['header']} id={'header'}>
 
-            <div className={'flex' + " " + styles['header-flex-container']}>
+            <div ref={header} className={styles['header-ref']}>
 
-              <h1 className={styles['header-heading']}>
+              <div className={'flex' + " " + styles['spinner']}>
 
-                Hello! <br /> I'm <span className={styles['accent-text']}>Haisam</span>.
+                <span className={'spinner-text' + " " + styles['spinner-text'] + " " + styles['top']}>haisam</span>
+                <span className={'spinner-text' + " " + styles['spinner-text'] + " " + styles['bottom']}>web developer</span>
 
-              </h1>
+              </div>
 
-              <h2 className={styles['header-subheading']}>
+              <div className={styles['header-links-container']}>
+                
+                <Link onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} href='https://github.com/mhaisam350' target='_blank' className={styles['header-link']}>
+                                    
+                  <p className={styles['header-link-text']}>Github</p>
+        
+                </Link>
 
-                <span className={styles['spinner'] + " " + spinnerSide1}>Front-end Developer</span>
-                <span className={styles['spinner'] + " " + spinnerSide2}>UI Designer</span>
-
-              </h2>
+                <span className={styles.divider}>|</span>
+        
+                <Link onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} href='https://www.linkedin.com/in/mohammad-haisam/' target='_blank' className={styles['header-link']}>
+        
+                  <p className={styles['header-link-text']} id={styles['orange-link']}>LinkedIn</p> 
+        
+                </Link>
+                
+              </div>
 
             </div>
 
           </header>
+
+          <section className={'flex' + " " + styles['about']} id={'about'}>
+
+            {/* <div className={styles.test}> */}
+
+            <div className={styles['about-text']}>
+
+              <h1 className={styles['about-heading']}>I'm Haisam</h1>
+
+              <p className={styles['about-paragraph']}>I'm a front-end developer & UI designer based in Pakistan. My passion for software and the web has given me the opportunity to work with a wide range of companies and brands.</p>
+
+            </div>
+
+            <div className={styles['about-image']}></div>
+            
+            {/* </div> */}
+
+          </section>
+
+          <section className={styles['technologies']}>
+
+            <h2 ref={techHeading} className={styles['section-heading']}>Technologies</h2>
+
+            <TechCard zIndex={zIndex} setZIndex={setZIndex} tech={'html'} />
+            <TechCard zIndex={zIndex} setZIndex={setZIndex} tech={'css'} />
+            <TechCard zIndex={zIndex} setZIndex={setZIndex} tech={'javascript'} />
+            <TechCard zIndex={zIndex} setZIndex={setZIndex} tech={'react'} />
+            <TechCard zIndex={zIndex} setZIndex={setZIndex} tech={'next.js'} />
+            <TechCard zIndex={zIndex} setZIndex={setZIndex} tech={'node.js'} />
+            <TechCard zIndex={zIndex} setZIndex={setZIndex} tech={'git'} />
+            <TechCard zIndex={zIndex} setZIndex={setZIndex} tech={'graphql'} />
+
+          </section>
+
+          <section className={'grid' + " " + styles['projects']} id={'projects'}>
+
+            {/* <h2 className={styles['section-heading']} id={styles['projects-heading']}>Projects</h2> */}
+
+            {
+
+              projects.map((project, index) => (
+
+                  <ProjectDisplay key={index} project={project} />
+
+              ))
+
+            }
+
+          </section>
+
+          <section className={'flex' + " " + styles['contact']} id={'contact'}>
+
+              {canvas}
+
+              <h2 className={styles['contact-title']}>Say hi</h2>
+              
+              <Link onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} href='mailto:mhaisam350@gmail.com' className={styles.mail}>mhaisam350@gmail.com</Link>
+
+              <div className={styles['contact-links-container']}>
+
+                <Link onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} href='https://github.com/mhaisam350' target='_blank' className={styles['header-link']}>
+                                    
+                  <p className={styles['header-link-text']}>Github</p>
+                          
+                </Link>
+
+                <span className={styles.divider}>·</span>
+                       
+                <Link onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} href='https://www.linkedin.com/in/mohammad-haisam/' target='_blank' className={styles['header-link']}>
+                          
+                  <p className={styles['header-link-text']} id={styles['orange-link']}>LinkedIn</p> 
+                          
+                </Link>
+
+              </div>
+
+          </section>
+          
+
+        </div>
 
     </div>
 
